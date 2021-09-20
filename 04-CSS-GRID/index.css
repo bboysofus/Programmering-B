@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: yellow;
+
+}
+
+.parent{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    /* Template columns fortæller hvordan child elementerne skal fordeles horisontalt */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+.child{
+    padding: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: black;
+    border: 1px solid white;
+}
+
+img{
+    position: relative;
+}

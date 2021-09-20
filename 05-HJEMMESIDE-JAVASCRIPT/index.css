@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'ZCOOL KuaiLe';
+}
+
+body{
+    display: grid;
+    grid-template-rows: 1fr 10fr 1rem;
+    height: 100vh;
+}
+
+header{
+    background-color: black;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+#button{
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-size:1.5rem;
+    font-style: none;
+}
+
+main{
+    transition: 1s all ease-in-out;
+    background-color: white;
+    display: grid;
+    place-items: center;
+
+}
+
+#tid{
+    transition: .3s all ease-in-out;
+    font-size: 4rem;
+    border: .3rem solid red;
+    border-radius: 0;
+    padding: 2rem;
+    height: 20vh;
+    width: 20vh;
+    display: grid;
+    place-items: center;
+}
+
+#tid:hover{
+    background-color: lawngreen;
+}
+
+footer{
+    transition: 1s all ease-in-out;
+    background-color: orangered;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}

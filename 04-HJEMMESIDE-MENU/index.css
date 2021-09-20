@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Staatliches&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    background-image: url('assets/sunny-sky-1.jpg');
+    background-size: cover;
+}
+
+header{
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.menu{
+    background-color: black;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+main{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+    padding: 2rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    font-family: 'Pacifico';
+    overflow-y: hidden;
+}
+
+main::-webkit-scrollbar{
+    display: none;
+}
+    
+.page{
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    scroll-snap-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer{
+    background-color: darkblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.contact{
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+}
