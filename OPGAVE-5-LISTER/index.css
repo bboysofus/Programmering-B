@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.card{
+    background-color: rgb(75, 75, 75);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .7);
+}
+
+.top{
+    background-color: grey;
+    border-bottom: .5px solid black;
+}
+
+.bottom{
+    background-color: lightgrey;
+    font-size: 1rem;
+    border-top: .5px solid black;
+    overflow: hidden;
+}
+
+.top, .bottom{
+    padding: 1rem;
+}
