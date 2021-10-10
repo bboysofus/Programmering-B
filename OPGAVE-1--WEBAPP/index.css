@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Roboto';
+  }
+
+
+  body{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-rows: 1fr 6fr 1fr;
+  }
+
+  header{
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  header a{
+    text-decoration: none;
+  }
+
+  .menu{
+    transition: 0.2s;
+    color: white;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .menu:hover{
+    color: rgb(71, 71, 71);
+    border: 2px solid rgb(41, 41, 41);
+    animation-duration: 3s;
+  }
+  
+  main{
+    background-color: grey;
+    display: grid;
+    grid-auto-flow: column;
+    overflow: scroll;
+    place-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+  }
+
+  main::-webkit-scrollbar {
+    display: none;
+  }
+
+  main a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .page{
+    color: black;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    scroll-snap-align: center;
+    padding: 1rem;
+  }
+
+  #side-1{
+    transition: .3s all ease-out;
+  }
+
+  #side-1:hover{
+    color: white;
+  }
+
+  #side-2{
+    transition: .3s all ease-out;
+  }
+
+  #side-2:hover{
+    color: white;
+  }
+
+  footer{
+    background-color: black;
+  }
