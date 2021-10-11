@@ -29,6 +29,12 @@ const addCard = nummer => {
         bottom.append(p)
 
         main.append(newCard)
+
+        for(let i = 0; i < 20; i++) {
+            newCard.style.animation = 'anim'
+            newCard.style.animationDuration = '.3s'
+            document.querySelector('main').append(newCard)
+        }
     }
 
 
@@ -39,3 +45,4 @@ search.addEventListener('input', () => {
     main.innerHTML = ''
     results.map(nummer => addCard(nummer))
 })
+

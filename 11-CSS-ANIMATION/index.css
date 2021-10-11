@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100vh;
+    padding: 2rem;
+    width: 100vw;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.card{
+    cursor: pointer;
+    height: 6rem;
+    width: 100%;
+    background: linear-gradient(green, red);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 3px 3px 10px;
+}
+
+@keyframes anim{
+    from{
+        transform:rotateX(360deg);
+    }
+    to{
+        transform:rotateY(0deg);
+    }
+}
