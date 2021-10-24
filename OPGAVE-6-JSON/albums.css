@@ -60,6 +60,7 @@
     font-size: 1.5rem;
     padding: 10px;
     font-weight: bold;
+    box-shadow: 2px 2px 10px;
 }
 
 .album-jazz{
@@ -70,6 +71,7 @@
     font-size: 1.5rem;
     padding: 10px;
     font-weight: bold;
+    box-shadow: 2px 2px 10px;
 }
 
 .hey{
