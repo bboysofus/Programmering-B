@@ -41,4 +41,10 @@ people.map(person => {
     newCard.innerHTML = person.name + '<br>' + person.age + '<br>' + person.favoriteAnimal + '<br>' + person.hobbies + '<br>' + person.id
 
     document.querySelector('body').append(newCard)
+
+    for(let i = 0; i < 20; i++) {
+        newCard.style.animation = 'anim'
+        newCard.style.animationDuration = '1s'
+    }
 })
+
