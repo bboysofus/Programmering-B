@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Rater</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="stylesheet" href="albums.css">
+    <link rel="stylesheet" href="button.css">
+    <link rel="icon" href="assets/disc-vinyl-icon.png">
+</head>
+<body>
+    <button class="button-to-top" onclick="toTop()" style="scroll-behavior: smooth;">
+        <span class="button-arrow">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"/></svg>
+        </span>
+    </button>
+    <main>
+        <div class="img-parent-container">
+            <div class="img-container"></div>
+            <div class="img-text-container">
+                <h1>Album Rater</h1>
+                <div class="img-p-arrow-container">
+                    <p>Scroll Down</p>
+                    <span class="img-arrow">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="albums">
+            <div class="genres">
+                <div class="genre-name">
+                    <h1>Rap</h1>
+                </div>
+                <div class="album-rap-container">
+                </div>
+            </div>
+            <div class="genres">
+                <div class="genre-name">
+                    <h1>Jazz</h1>
+                </div>
+                <div class="album-jazz-container">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+body{
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main{
+    display: block;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.876);
+    width: 100%;
+    padding: 30px;
+}
+
+.img-parent-container{
+    position: relative;
+    background-color: black;
+    height: calc(100vh - 60px);
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.img-container{
+    height: 100%;
+    width: 100%;
+    background-image:url("assets/Vintage-Vinyl-Record-Player-Wallpaper-1280x960.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 40%;
+    animation: fadeIn .5s ease-in;
+}
+
+.img-text-container{
+    animation: fadeInUp .7s ease-in-out;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.img-text-container h1{
+    color: white;
+    font-weight: 1;
+    width: 100%;
+    font-size: 120px;
+    letter-spacing: 5px;
+}
+
+.img-p-arrow-container{
+    transition: .8s all ease-out;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    left: 0;
+    text-transform: uppercase;
+}
+
+.img-p{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.img-arrow{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+    animation: float 1s .8s ease-in-out infinite;
+    stroke: white;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 40%;
+    }
+}
+
+@keyframes fadeInUp{
+    0%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+    50%{
+        opacity: 20%;
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform: translate(0);
+    }
+    50%{
+        transform: translateY(8px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
