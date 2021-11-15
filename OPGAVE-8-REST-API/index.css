@@ -55,6 +55,11 @@ footer{
     place-items: center;
     height: 10vh;
     background: black;
+    padding: 1rem;
+}
+
+#select-box{
+    margin-bottom: .3rem;
 }
 
 #participant-select{
@@ -71,6 +76,22 @@ select:active, select:focus{
 }
 
 #participant-select option{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+}
+
+#activity-select{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+    text-align: center;
+    border: 2px solid white;
+}
+
+#activity-select option{
     font-size: 1rem;
     font-weight: bolder;
     color: white;

@@ -13,24 +13,33 @@
     </header>
     <main>
         <div id="activity">
-            <h2 id="title">Fetching...</h2>
-            <p id="participants">Fetching...</p>
-            <p id="acc">Fetching...</p>
-            <p id="price">Fetching...</p>
-            <p id="cat">Fetching...</p>
+            <h2 id="title">Select the options down<br>below to continue!</h2>
+            <p id="participants"></p>
+            <p id="acc"></p>
+            <p id="price"></p>
+            <p id="cat"></p>
         </div>
     </main>
     <footer>
-        <select id="participant-select">
-            <option value="">--PARTICIPANTS--</option>
-            <option value="?participants=1">1</option>
-            <option value="?participants=2">2</option>
-            <option value="?participants=3">3</option>
-            <option value="?participants=4">4</option>
-            <option value="?participants=5">5</option>
-        </select>
+        <div id="select-box">
+            <select id="activity-select">
+                <option value="">- - ACTIVITY - -</option>
+                <option value="education">Education</option>
+                <option value="cooking">Cooking</option>
+                <option value="social">Social</option>
+                <option value="music">Music</option>
+                <option value="diy">DIY</option>
+            </select>
 
-        
+            <select id="participant-select">
+                <option value="">- - PARTICIPANTS - -</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
         <button id="fetch">Something else</button>
     </footer>
     <script src="index.js"></script>
