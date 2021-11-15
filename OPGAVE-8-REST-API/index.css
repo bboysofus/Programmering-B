@@ -32,11 +32,22 @@ main{
 }
 
 #activity{
+    text-align: center;
     display: grid;
     place-items: center;
     width: 80vw;
     padding: 1rem;
-    border: 1px solid black;
+    border: 2px solid white;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px 10px black;
+    background: black;
+    color: red;
+}
+
+#activity p{
+    color: white;
+    margin-top: 1rem;
+    font-weight: bold;
 }
 
 footer{
@@ -44,4 +55,36 @@ footer{
     place-items: center;
     height: 10vh;
     background: black;
+}
+
+#participant-select{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+    text-align: center;
+    border: 2px solid white;
+}
+
+select:active, select:focus{
+    outline: none;
+}
+
+#participant-select option{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+}
+
+button{
+    background: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: .2rem;
+}
+
+button:active, button:focus{
+    outline: none;
 }
