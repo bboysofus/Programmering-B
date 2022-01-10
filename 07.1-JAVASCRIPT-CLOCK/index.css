@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Roboto';
+}
+
+header{
+    display:grid;
+    align-items:center;
+    overflow:hidden;
+}
+
+#lyd{
+    display:none;
+}
+
+#thomas{
+    height:10vh;
+    width:10vh;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border-radius:50%;
+    transition: all .3s ease-in-out;
+}
+
+body{
+    display:grid;
+    grid-template-rows: repeat(3, 1fr);
+    height:100vh;
+}
+
+main{
+    display:grid;
+    place-items:center;
+}
+
+#ur{
+    display:grid;
+    grid-auto-flow:column;
+    place-items:center;
+    font-size:20vh;
+}
+
+#ur div:nth-of-type(2), #ur div:nth-of-type(4){
+    margin-bottom:4vh;
+}

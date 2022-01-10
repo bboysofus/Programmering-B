@@ -24,7 +24,7 @@ body{
     cursor: pointer;
     display: grid;
     place-items: center;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
     border: 5px solid black;
     box-shadow: 5px 5px 10px;
