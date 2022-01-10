@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <div id="chooseBlack" onclick="blackChosen()">BLACK</div>
+        <div id="chooseRed" onclick="redChosen()">RED</div>
+        <div id="chooseGreen" onclick="greenChosen()">GREEN</div>
+        <div id="chooseBlue" onclick="blueChosen()">BLUE</div>
+        <div id="eraser" onclick="eraserChosen()">ERASE</div>
+    </header>
+    <div id="tabButton" onclick="tab()">CLOSE</div>
+    <h1 id="info">Her kommer der info</h1>
+    <div id="scrollInfo">
+        <p>Use scrollwheel to change brush size</p>
+        <p id="brushSize"></p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
