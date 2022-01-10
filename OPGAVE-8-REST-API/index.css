@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+body{
+    background: black;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: grid;
+    place-items: center;
+    height: 10vh;
+    background: black;
+    color: white;
+}
+
+main{
+    display: grid;
+    place-items: center;
+    height: 80vh;
+    background: yellowgreen;
+}
+
+#activity{
+    text-align: center;
+    display: grid;
+    place-items: center;
+    width: 80vw;
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px 10px black;
+    background: black;
+    color: red;
+}
+
+#activity p{
+    color: white;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+footer{
+    display: grid;
+    place-items: center;
+    height: 10vh;
+    background: black;
+    padding: 1rem;
+}
+
+#select-box{
+    margin-bottom: .3rem;
+}
+
+#participant-select{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+    text-align: center;
+    border: 2px solid white;
+}
+
+select:active, select:focus{
+    outline: none;
+}
+
+#participant-select option{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+}
+
+#activity-select{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+    text-align: center;
+    border: 2px solid white;
+}
+
+#activity-select option{
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: black;
+}
+
+button{
+    background: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: .2rem;
+}
+
+button:active, button:focus{
+    outline: none;
+}
