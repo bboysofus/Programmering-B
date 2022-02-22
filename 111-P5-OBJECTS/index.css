@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header{
+    height: 10vh;
+    background: black;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+main{
+    position: relative;
+    height: 90vh;
+}
+
+h2{
+    padding-top: 1rem;
+    text-align: center;
+}
+
+canvas{
+    position: absolute;
+    bottom: 0;
+}
