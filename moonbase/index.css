@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+@font-face{
+    font-family: space;
+    src: url(./fonts/aspace_demo.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro";
+}
+
+body{
+    display: block;
+    background-color: black;
+}
+
+main{
+    background-color: black;
+}
+
+.front-container{
+    height: calc(100vh);
+    width: 100%;
+}
+
+.front-img-container{
+    height: 100%;
+    width: 100%;
+    background-image: url(./assets/Moon.jpg);
+    animation: fadeIn 1s ease-in;
+    opacity: 90%;
+}
+
+.front-text-container{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+.front-text-container h1{
+    transition: .2s ease-in-out;
+    margin: 0;
+    padding: 0;
+    font-family: "space";
+    font-weight: bold;
+    animation: fadeInUp .5s 1s ease-in forwards;
+    opacity: 0%;
+    font-size: 400%;
+    background: linear-gradient(to bottom, #0b00ff, #7e00fd, #b300fa, #dc00f7, #ff00f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.front-text-container h2{
+    margin-top: 10%;
+    font-family: "space";
+    font-weight: bold;
+    font-size: 200%;
+    animation: fadeInUp .5s 1.5s ease-in forwards;
+    opacity: 0%;
+    color: white;
+}
+
+.front-text-container h3{
+    margin-top: 10%;
+    font-family: "space";
+    font-weight: bold;
+    font-size: 200%;
+    animation: fadeInUp .5s 2s ease-in forwards;
+    opacity: 0%;
+    color: white;
+}
+
+.front-text-container h4{
+    margin-top: 10%;
+    font-family: "space";
+    font-weight: bold;
+    font-size: 200%;
+    animation: fadeInUp .5s 2.5s ease-in forwards;
+    opacity: 0%;
+    color: white;
+}
+
+.page2{
+    margin-top: 10%;
+    height: 100vh;
+    width: 100%;
+}
+
+.page2-img-container{
+    height: 100%;
+    width: 100%;
+    opacity: 0%;
+    transition: 1s ease-in-out;
+    background-image: url(./assets/SunClose.jpg);
+}
+
+.page3{
+    margin-top: 10%;
+    height: 100vh;
+    width: 100%;
+}
+
+.page3-img-container{
+    height: 100%;
+    width: 100%;
+    background-image: url(./assets/MoonLand.jpg);
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 90%;
+    }
+}
+
+@keyframes fadeInUp{
+    0%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+    50%{
+        opacity: 20%;
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}

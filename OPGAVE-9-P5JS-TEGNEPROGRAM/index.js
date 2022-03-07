@@ -9,8 +9,9 @@ let chooseBlue = document.querySelector("#chooseBlue")
 let chooseEraser = document.querySelector("#eraser")
 let xColor = "black"
 
+
 function setup(){
-    frameRate(120)
+    frameRate(400)
     console.log('setup')
     createCanvas(windowWidth, windowHeight)
     background('white')
@@ -20,14 +21,13 @@ function setup(){
 }
 
 function draw(){
-    
     select("#info").html("Chosen: " + xColor)
 
-    
+
     if(go){
         noStroke()
         fill(xColor)
-        ellipse(mouseX, mouseY, d, d)
+        circle(mouseX, mouseY, d, d)
     }
     //mouseX mouseY frameCount map
     
