@@ -8,7 +8,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Source Sans Pro";
+    font-family: "space";
+}
+
+.dot{
+    font-family: "Roboto";
+    font-weight: bold;
 }
 
 body{
@@ -50,7 +55,7 @@ main{
     font-weight: bold;
     animation: fadeInUp .5s 1s ease-in forwards;
     opacity: 0%;
-    font-size: 400%;
+    font-size: 600%;
     background: linear-gradient(to bottom, #0b00ff, #6e00fd, #9b00fb, #be00f9, #dc00f7, #ec00e3, #f800d0, #ff00be, #ff009b, #ff0078, #ff1959, #ff3b3b);;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,7 +63,7 @@ main{
 }
 
 .front-text-container h2{
-    margin-top: 20%;
+    margin-top: 10%;
     font-family: "space";
     font-weight: bold;
     font-size: 200%;
@@ -128,6 +133,10 @@ main{
     text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
+.page2-text-container h2{
+    margin-top: 10%;
+}
+
 .page3{
     margin-top: 10%;
     height: 100vh;
@@ -139,6 +148,72 @@ main{
     width: 100%;
     background-image: url(./assets/MoonLand.jpg);
 }
+
+#ast1{
+    position: absolute;
+    left: 80%;
+    top: 300%;
+}
+
+#ast2{
+    position: absolute;
+    top: 280%;
+    left: 15%;
+}
+
+#ast1, #ast2{
+    z-index: 5;
+    animation: float 5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+#button-container{
+    position: absolute;
+    top: 235%;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#button{
+    position: relative;
+    background: none;
+    z-index: 1;
+    margin-top: 15%;
+    margin-left: 2%;
+    height: 5%;
+    width: 10%;
+    border: 2px rgb(81, 206, 255) solid;
+    cursor: pointer;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    font-family: space;
+    color: white;
+    font-size: 100%;
+    transition: .1s all ease-in;
+}
+
+#button:hover{
+    color: black;
+    font-weight: bold;
+}
+ #button:before{
+     content: "";
+     position: absolute;
+     background: rgb(81, 206, 255);
+     bottom: 0;
+     left: 0;
+     right: 0;
+     top: 100%;
+     z-index: -1;
+     transition: top .09s ease-in;
+ }
+
+ #button:hover:before{
+     top: 0;
+ }
 
 @keyframes fadeIn{
     0%{
@@ -160,5 +235,47 @@ main{
     100%{
         opacity: 100%;
         transform: translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform: translate(0);
+    }
+    50%{
+        transform: translateY(15%);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+
+@keyframes wow1{
+    0%{
+        transform: translate(0);
+    }
+    40%{
+        transform: translateX(-400%) rotate(-360deg);
+    }
+    60%{
+        transform: translateY(-150%) translateX(-300%) rotate(90deg)
+    }
+    100%{
+        transform: translate(0) rotate(0deg)
+    }
+}
+
+@keyframes wow2{
+    0%{
+        transform: translate(0);
+    }
+    40%{
+        transform: translateX(200%) translateY(200%) rotate(-100deg);
+    }
+    60%{
+        transform: translateY(-100%) translateX(200%) rotate(90deg)
+    }
+    100%{
+        transform: translate(0) rotate(0deg)
     }
 }
