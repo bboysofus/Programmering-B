@@ -51,19 +51,21 @@ main{
     animation: fadeInUp .5s 1s ease-in forwards;
     opacity: 0%;
     font-size: 400%;
-    background: linear-gradient(to bottom, #0b00ff, #7e00fd, #b300fa, #dc00f7, #ff00f4);
+    background: linear-gradient(to bottom, #0b00ff, #6e00fd, #9b00fb, #be00f9, #dc00f7, #ec00e3, #f800d0, #ff00be, #ff009b, #ff0078, #ff1959, #ff3b3b);;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
 .front-text-container h2{
-    margin-top: 10%;
+    margin-top: 20%;
     font-family: "space";
     font-weight: bold;
     font-size: 200%;
     animation: fadeInUp .5s 1.5s ease-in forwards;
     opacity: 0%;
     color: white;
+    text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
 .front-text-container h3{
@@ -74,6 +76,7 @@ main{
     animation: fadeInUp .5s 2s ease-in forwards;
     opacity: 0%;
     color: white;
+    text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
 .front-text-container h4{
@@ -84,6 +87,7 @@ main{
     animation: fadeInUp .5s 2.5s ease-in forwards;
     opacity: 0%;
     color: white;
+    text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
 .page2{
@@ -101,6 +105,27 @@ main{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.page2-text-container{
+    transition: 1s ease-in-out;
+    color: white;
+    position: absolute;
+    left: 3%;
+    top: 120%;
+    opacity: 0%;
+}
+
+.page2-text-container h1{
+    margin: 0;
+    padding: 0;
+    font-family: "space";
+    font-weight: bold;
+    font-size: 400%;
+    background: linear-gradient(to bottom, #0b00ff, #6e00fd, #9b00fb, #be00f9, #dc00f7, #ec00e3, #f800d0, #ff00be, #ff009b, #ff0078, #ff1959, #ff3b3b);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 8px rgba(255, 0, 234, 0.514);
 }
 
 .page3{
