@@ -26,9 +26,12 @@ main{
 }
 
 .front-img-container{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background-image: url(./assets/Moon.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     animation: fadeIn 1s ease-in;
     opacity: 90%;
 }
@@ -95,6 +98,9 @@ main{
     opacity: 0%;
     transition: 1s ease-in-out;
     background-image: url(./assets/SunClose.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .page3{
