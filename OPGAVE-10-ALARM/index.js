@@ -34,12 +34,18 @@ const secret = () => {
     }
 }
 
+function addZero(time) {
+
+    return (time < 10) ? "0" + time : time;
+
+}
+
 function hoursMenu(){
 
 	var select = document.getElementById('alarmhrs');
 	var hrs = 23
 
-	for (i=1; i <= hrs; i++) {
+	for (i=0; i <= hrs; i++) {
 		select.options[select.options.length] = new Option( i < 10 ? "0" + i : i, i);
 		
 	}
@@ -51,7 +57,7 @@ function minutesMenu(){
     var select = document.getElementById('alarmmins')
     var mins = 59
 
-    for (i=1; i <= mins; i++) {
+    for (i=0; i <= mins; i++) {
 		select.options[select.options.length] = new Option( i < 10 ? "0" + i : i, i);
 		
 	}
@@ -64,7 +70,7 @@ function secondsMenu(){
     var select = document.getElementById('alarmsecs')
     var secs = 59
 
-    for (i=1; i <= secs; i++) {
+    for (i=0; i <= secs; i++) {
 		select.options[select.options.length] = new Option( i < 10 ? "0" + i : i, i);
 		
 	}
@@ -81,7 +87,7 @@ function alarmSet(){
     var selectedMin = min.options[min.selectedIndex].value;
     var selectedSec = sec.options[sec.selectedIndex].value;
 
-    alarmTime = selectedHour + ":" + selectedMin + ":" + selectedSec;
+    alarmTime = addZero(selectedHour) + ":" + addZero(selectedMin) + ":" + addZero(selectedSec);
     console.log('alarm: ' + alarmTime);
 
     document.getElementById('alarmhrs').disabled = true;
