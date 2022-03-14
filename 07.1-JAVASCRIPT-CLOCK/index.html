@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div id="thomas"></div>
+        <h1>Alarm-<span id="secret" onclick="secret()">clock</span></h1>
     </header>
     <main>
         <div id="ur">
@@ -19,10 +19,35 @@
             <div>:</div>
             <div id="sek">00</div>
         </div>
+
+        <div id="alarm-container">
+            <h2>Set Alarm</h2>
+            <label>
+                <div>
+                    <select id="alarmhrs"></select>
+                </div>
+            </label>
+            <label>
+                <div>
+                    <select id="alarmmins"></select>
+                </div>
+            </label>
+            <label>
+                <div>
+                    <select id="alarmsecs"></select>
+                </div>
+        </div>
+
+        <div id="button-holder">
+            <div>
+                <button id="setButton" onclick="alarmSet()">Set Alarm</button>
+            </div>
+            <div>
+                <button id="clearButton" onclick="alarmClear()">Clear Alarm</button>
+            </div>
+        </div>
+        <h2>Current Alarm: <span id="placeholder">Unset</span></h2>
     </main>
-    <footer>
-        <audio id='lyd' src="https://freewavesamples.com/files/Ensoniq-ZR-76-01-Dope-77.wav"></audio>
-    </footer>
     
     <script src="index.js"></script>
 </body>

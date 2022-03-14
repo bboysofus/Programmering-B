@@ -1,40 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family:'Roboto';
 }
 
-header{
-    display:grid;
-    align-items:center;
-    overflow:hidden;
-}
-
-#lyd{
-    display:none;
-}
-
-#thomas{
-    height:10vh;
-    width:10vh;
-    background-repeat:no-repeat;
-    background-size:cover;
-    border-radius:50%;
-    transition: all .3s ease-in-out;
-}
-
 body{
-    display:grid;
-    grid-template-rows: repeat(3, 1fr);
     height:100vh;
 }
 
+header{
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 20%;
+    background-color: black;
+    border-bottom: 2px solid black;
+    -webkit-box-shadow: 1px 4px 7px 3px rgba(0,0,0,0.5); 
+    box-shadow: 1px 4px 7px 3px rgba(0,0,0,0.5);
+    color: white;
+    font-size: 150%;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+#secret:hover{
+    cursor: pointer;
+}
+
 main{
+    width: 100vw;
+    height: 80%;
     display:grid;
     place-items:center;
+    padding: 10%;
 }
 
 #ur{
@@ -42,6 +43,43 @@ main{
     grid-auto-flow:column;
     place-items:center;
     font-size:20vh;
+}
+
+#alarm-container{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#button-holder{
+    display: grid;
+    grid-auto-flow: column;
+    width: 30%;
+}
+
+#setButton{
+    float: left;
+    color: black;
+    background-color: green;
+    border: 3px solid black;
+    padding: 2px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#clearButton{
+    float: right;
+    color: black;
+    background-color: red;
+    border: 3px solid black;
+    padding: 2px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+label{
+    display: inline-block;
 }
 
 #ur div:nth-of-type(2), #ur div:nth-of-type(4){
