@@ -13,7 +13,7 @@ const port = 1806
 
 //Vi laver en meget simpel database
 const marioTitles = {
-    "marioTitles":
+    "mariotitles":
     'Here are some of the most popular Mario titles: Super Mario Bros. -1985 | Super Mario 64 -1996 | Mario Kart 64 -1997 | Super Mario Galaxy -2007 | Super Mario Odyssey -2017 // If you want to learn more about one of the games, try typing the game title in the url as the endpoint. Ex: "/Mario Kart 64"',
 
     "Super Mario Bros.": 
