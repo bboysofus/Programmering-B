@@ -26,3 +26,27 @@ canvas{
     right: 2rem;
     bottom: 2rem;
 }
+
+#chatBox, #nameBox{
+    background-color: lightblue;
+    width: 40vw;
+    height: 40vh;
+    position: fixed;
+    top: 30vh;
+    left: 30vw;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: 6fr 1fr;
+    padding: .5rem;
+    transition: all .5 ease-in-out;
+}
+
+#chat{
+    background-color: white;
+    padding: .5rem;
+    overflow-y: scroll;
+}
+
+#chatBox.hide, #nameBox.hide{
+    left:-100vw
+}
