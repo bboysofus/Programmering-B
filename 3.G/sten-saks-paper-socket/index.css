@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Roboto&family=Urbanist:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    font-size: xx-large;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    left: -100vw;
+    transition: .5s all ease-in-out;
+    display: grid;
+}
+
+#name{
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+
+#nameButton, #nameInput{
+    align-self: flex-start;
+    display: grid;
+    gap: .5rem;
+}
+
+button{
+    background: #1AAE9F;
+    border: none;
+    color: white;
+    padding: .3rem;
+    border-radius: .3rem;
+    margin: 0 1rem 0 1rem;
+}
+
+input{
+    padding: .3rem;
+    border-radius: .3rem;
+    border: 3px solid #1AAE9F;
+}
+
+.show{
+    left: 0;
+}
