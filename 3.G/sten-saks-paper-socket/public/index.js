@@ -14,10 +14,33 @@ function setup(){
             select('#reject').addClass('show')
         }
     })
+
+    
     select('#nameButton').mousePressed(() =>{
-        select('#name').addClass('hide')
-        select('#lobby').addClass('show')
+        let message = {'name': select('#nameInput').value()}
+        if(message != ''){
+            clientSocket.emit('ready', message)
+            select('#nameInput').value('')
+            select('#name').addClass('hide')
+            select('#lobby').addClass('show')
+        }else{
+            alert('Skriv et navn i tekstfeltet!')
+        }
     })
+}
+
+function keyPressed(){
+    if(key == 'Enter'){
+        let message = {'name': select('#nameInput').value()}
+        if(message != ''){
+            clientSocket.emit('ready', message)
+            select('#nameInput').value('')
+            select('#name').addClass('hide')
+            select('#lobby').addClass('show')
+        }else{
+            alert('Skriv et navn i tekstfeltet!')
+        }
+    }
 }
 
 function draw(){}

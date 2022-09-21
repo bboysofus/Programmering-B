@@ -24,19 +24,23 @@ const serverSocket = io(server)
 let players = []
 let waiters = []
 
+let names = []
+
 //Al snak med klient(erne) sker på 'cennction' med .on
 serverSocket.on('connection', socket => {
+
+    
 
     console.log('En spiller: ' + socket.id + ' prøver at komme ind');
     //Der kommer en ny klient
     if(players.length >= 2){
         socket.emit('join', false)
-        waiters.push({'id': socket.id})
+        waiters.push( { 'id': socket.id} )
         console.log('Der er ikke plads. Spilleren blev sendt til "Waiters"');
         console.log('Antal waiters: ' + waiters.length);
     }else{
         socket.emit('join', true)
-        players.push({'id': socket.id})
+        players.push( { 'id': socket.id } )
         console.log('Ny spiller er inde: ' + socket.id);
         console.log('Antal spillere inde: ' + players.length);
     }
@@ -44,5 +48,17 @@ serverSocket.on('connection', socket => {
     socket.on('disconnect', () => {
         players = players.filter(p=>p.id != socket.id)
         waiters = waiters.filter(p=>p.id != socket.id)
+        names = names.filter(p=>p.name != names.name)
+
+        console.log(players);
+        console.log(names);
+    })
+
+    socket.on('ready', message => {
+        names.push(message)
+
+
+        console.log(players);
+        console.log(names);
     })
 })
