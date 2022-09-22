@@ -24,8 +24,6 @@ const serverSocket = io(server)
 let players = []
 let waiters = []
 
-let names = []
-
 //Al snak med klient(erne) sker på 'cennction' med .on
 serverSocket.on('connection', socket => {
 
@@ -48,17 +46,14 @@ serverSocket.on('connection', socket => {
     socket.on('disconnect', () => {
         players = players.filter(p=>p.id != socket.id)
         waiters = waiters.filter(p=>p.id != socket.id)
-        names = names.filter(p=>p.name != names.name)
 
         console.log(players);
-        console.log(names);
     })
 
     socket.on('ready', message => {
-        names.push(message)
+        players.find(p=>p.id == socket.id).name = message.name
 
 
         console.log(players);
-        console.log(names);
     })
 })
