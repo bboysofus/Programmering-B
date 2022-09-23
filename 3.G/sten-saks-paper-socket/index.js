@@ -23,6 +23,7 @@ const serverSocket = io(server)
 
 let players = []
 let waiters = []
+let ready = 0
 
 //Al snak med klient(erne) sker på 'cennction' med .on
 serverSocket.on('connection', socket => {
@@ -44,16 +45,24 @@ serverSocket.on('connection', socket => {
     }
     
     socket.on('disconnect', () => {
+
         players = players.filter(p=>p.id != socket.id)
         waiters = waiters.filter(p=>p.id != socket.id)
-
+        
         console.log(players);
     })
 
     socket.on('ready', message => {
         players.find(p=>p.id == socket.id).name = message.name
-
+        ready = ready + 1
 
         console.log(players);
+        console.log(players.length);
+        console.log(ready);
     })
+
+    if(ready == 2){
+        serverSocket.sockets.emit('play', 'Spillet starter nu')
+    }
+
 })
