@@ -15,11 +15,12 @@ function setup(){
         }
     })
 
-    clientSocket.on('play', () => {
+    clientSocket.on('play', console.log('Spillet starter'))
+
+    const test = ()=>{
         select('#lobby').addClass('hide')
         select('#play').addClass('show')
-    })
-
+    }
     
     select('#nameButton').mousePressed(() =>{
         let message = {'name': select('#nameInput').value()}
