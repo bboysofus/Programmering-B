@@ -1,12 +1,12 @@
 let clientSocket
-let currentPage = '#lobby'
+let currentPage = '#name'
 let nameInput, nameButton, drawingWord, rejectButton, lobbyText, timer, winner, restartButton, guessButton, canvas, guessInput, chat, chatBox, go, thickness
 let c
 
 function setup(){
   frameRate(400)
   //laver et canvas til "tegning"
-  c = createCanvas(500, 500)
+  c = createCanvas(200, 200)
   background('green')
   //log på serveren 
   clientSocket = io.connect()
@@ -50,11 +50,13 @@ function setup(){
       confirm('indtast et navn')
     }
 
-    //Når begge spillere har indtastet navn, skal spil starte. Server sender to roller til klienter, som skal fordeles
+    //Når begge spillere har indtastet navn, skal spil starte. Server sender to roller til klienter, som klienterne modtager tilfældigt
+    //Vi modtager et json objekt fra server med roller og tilfældigt tegne-ord
     clientSocket.on('play', obj =>{
       console.log('got play, starting game ' + obj.role)
       console.log('Got the word: ' + obj.word);
       //uddel rollerne guesser og drawer
+      //Hvis man er drawer, skal guess-elementer fjernes
       if(obj.role=='draw'){
         drawingWord.html('Tegn: ' + obj.word)
         guessInput.hide()
@@ -69,11 +71,12 @@ function setup(){
       //Start timer
     })
     
-    //start spil
+    //Når klienten modtager koordinaterne tilbage fra serveren, skal de vises
     clientSocket.on('draw', obj => {
+      //Vi tegner ellipser ud fra det obj, som vi får fra serveren. Dvs, når tegneren dragger musen hen ad canvas, tegner den ellipser på mouseX og mouseY.
       noStroke()
       fill('white')
-      ellipse(obj.x, obj.y, 20, 20)
+      ellipse(obj.x, obj.y, 10, 10)
     })
     
     
@@ -87,21 +90,14 @@ function setup(){
   })
 }
 
+//Når klient dragger musen
 function mouseDragged(){
-  console.log('sending coords ', mouseX)
+  //Vi laver et json obj med musepositionerne på skærmen og sender det til serveren
   let obj = {
     x: mouseX,
     y: mouseY
   }
   clientSocket.emit('coords', obj)
-}
-
-if(go){
-  clientSocket.emit('tegning', koordinater => {
-    noStroke()
-    fill('black')
-    circle(mouseX, mouseY, thickness, thickness)
-  })
 }
 
 function shiftPage(pageId){

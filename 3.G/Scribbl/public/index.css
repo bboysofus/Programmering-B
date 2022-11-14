@@ -12,7 +12,7 @@
 .page{
     width:100vw;
     height: 100vh;
-    padding:1rem;
+    padding: 1rem;
     background:white;
     position:fixed;
     left:-100vw;
@@ -28,13 +28,19 @@
     grid-template-rows: 1fr 1fr;
     place-items:center;
 }
-#reject, #play{
+#reject{
     grid-template-rows: 1fr 1fr 1fr;
     place-items:center;
     padding-bottom: 70%;
 }
 
-#choice, #result {
+#play{
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+
+}
+
+#result {
     place-items:center;
 }
 .timer{
