@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" integrity="sha512-rCZdHNB0AePry6kAnKAVFMRfWPmUXSo+/vlGtrOUvhsxD0Punm/xWbEh+8vppPIOzKB9xnk42yCRZ5MD/jvvjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js" integrity="sha512-tc5xpAPaQDl/Uxd7ZVbV66v94Lys0IefMJSdlABPuzyCv0IXmr9TkqEQvZiWKRoXMSlP5YPRwpq2a+v5q2uzMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Escape room</title>
+</head>
+<body>
+    <div class="page" id="pass">
+        <div class="title">Indtast kode</div>
+        <div class="input">
+            <div class="inputBox">
+                <img src="assets/lock.png">
+                <input id="passInput" type="text" placeholder="Aa">
+            </div>
+            <button id="passButton"><svg id="Layer_1" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m22 0h-1.436a2.978 2.978 0 0 0 -2.121.879l-8.527 8.521a7.518 7.518 0 1 0 4.684 4.684l2.4-2.4v-3.684h3v-3h3.551a2.978 2.978 0 0 0 .449-1.564v-1.436a2 2 0 0 0 -2-2zm-16.5 20a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1 -1.5 1.5z"/></svg></button>
+        </div>
+    </div>
+
+    <div class="page" id="codes">
+        <div id="containerParent">
+
+            <div class="container">
+                <div class="title">Lys</div>
+                <div class="input">
+                    <div class="inputBox">
+                        <img src="assets/lock.png">
+                        <input type="text" id="lysInput" placeholder="Aa">
+                    </div>
+                    <button id="lysButton"><svg id="Layer_1" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m22 0h-1.436a2.978 2.978 0 0 0 -2.121.879l-8.527 8.521a7.518 7.518 0 1 0 4.684 4.684l2.4-2.4v-3.684h3v-3h3.551a2.978 2.978 0 0 0 .449-1.564v-1.436a2 2 0 0 0 -2-2zm-16.5 20a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1 -1.5 1.5z"/></svg></button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="title">Mus</div>
+                <div class="input">
+                    <div class="inputBox">
+                        <img src="assets/lock.png">
+                        <input type="text" id="musInput" placeholder="Aa" disabled>
+                    </div>
+                    <button id="musButton"><svg id="Layer_1" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m22 0h-1.436a2.978 2.978 0 0 0 -2.121.879l-8.527 8.521a7.518 7.518 0 1 0 4.684 4.684l2.4-2.4v-3.684h3v-3h3.551a2.978 2.978 0 0 0 .449-1.564v-1.436a2 2 0 0 0 -2-2zm-16.5 20a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1 -1.5 1.5z"/></svg></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
