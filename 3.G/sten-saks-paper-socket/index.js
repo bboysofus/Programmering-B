@@ -50,6 +50,15 @@ serverSocket.on('connection', socket => {
         waiters = waiters.filter(p=>p.id != socket.id)
         
         console.log(players);
+        console.log(waiters);
+
+        if(Object.keys(waiters).length > 0){
+            if(Object.keys(players).length < 2){
+                players.push(waiters.shift())
+            }
+        }
+
+        console.log(players);
     })
 
     socket.on('ready', message => {
@@ -59,10 +68,11 @@ serverSocket.on('connection', socket => {
         console.log(players);
         console.log(players.length);
         console.log(ready);
+
+        if(ready == 2){
+            serverSocket.sockets.emit('play', 'Spillet starter nu')
+        }
     })
 
-    if(ready == 2){
-        serverSocket.sockets.emit('play', 'Spillet starter nu')
-    }
 
 })
