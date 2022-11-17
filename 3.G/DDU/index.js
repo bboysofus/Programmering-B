@@ -1,7 +1,8 @@
+//Vi laver en variabel 'currentPage' og sætter den til startsiden
 let currentPage = '#pass'
 
 //Initialisér variabler
-let passInput, passButton, lysInput, lysButton, musInput, musButton
+let passImage, passInput, passInputBox, passButton, lysImage, lysInput, lysInputBox, lysButton, musImage, musInput, musInputBox, musButton, morseButton, grayBackground, morseHelp
 
 //Opret client, som skal connecte til mqtt
 let client
@@ -35,62 +36,65 @@ function setup(){
         })
     })
 
-    passButton.mousePressed(()=>{
-        if(passInput.value().toLowerCase() == 'nisse' && currentPage == '#pass' && counter == 0){
-            setTimeout(()=>{shiftPage('#codes')}, 2000) 
-            counter++
-        }else{
-            //Lav animation på .passInput her
-            alert('Forkert kode!!')
-        }
+    //Når man klikker på knappen til at se morsekodealfabet
+    morseButton.mouseClicked(()=>{
+        counter++
+        grayBackground.style('visibility', 'visible')
+        grayBackground.style('opacity', '100%')
+        morseHelp.style('visibility', 'visible')
+        setTimeout(()=>{morseHelp.style('opacity', '100%')}, 500)
     })
 
-    lysButton.mousePressed(()=>{
-        if(lysInput.value().toLowerCase() == 'julemand' && currentPage == '#codes' && counter == 1){
-            client.publish('xmasEscape', 'lys indtastet')
-            musInput.removeAttribute('disabled')
-            counter++
-        }else{
-            alert('Forkert kodeeeee!')
-        }
-    })
-
-    musButton.mousePressed(()=>{
-        if(musInput.value().toLowerCase() == '12' && currentPage == '#codes' && counter == 2){
-            client.publish('xmasEscape', 'mus indtastet')
-        }else{
-            alert('Forkert kodeeeeeeeeeee!!!!!!!!!')
-        }
+    //Når man klikker på morsekodealfabetet for at lukke det igen
+    morseHelp.mouseClicked(()=>{
+        counter--
+        morseHelp.style('opacity', '0%')
+        setTimeout(()=>{morseHelp.style('visibility', 'hidden')}, 500)
+        grayBackground.style('opacity', '0%')
+        setTimeout(()=>{grayBackground.style('visibility', 'hidden')}, 500)
     })
 }
 
+//Funktion der lytter på tast fra tastatur
 function keyPressed(){
-    console.log(key, lysInput.value())
+    //Når første kode er skrevet rigtigt ind
+    if(passInput.value().toLowerCase() + 'e' == 'nisse' && currentPage == '#pass' && counter == 0){
+        setTimeout(()=>{passInput.value('')}, 100)
+        setTimeout(()=>{passInput.attribute('disabled', 1)}, 100)
+        passInputBox.style('background-color', 'green')
+        passImage.style('background-image', 'url("./assets/lock-open.png")')
+        counter++
+        setTimeout(()=>{shiftPage('#codes')}, 1000)
+    }
+
+    //Når anden kode er skrevet rigtigt ind
     if(lysInput.value().toLowerCase() + 'd' == 'julemand' && currentPage == '#codes' && counter == 1){
+        setTimeout(()=>{lysInput.attribute('disabled', 1)}, 100)
+        lysInputBox.style('background-color', 'green')
+        lysImage.style('background-image', 'url("./assets/lock-open.png")')
+        setTimeout(()=>{musInput.style('background-image', 'url("assets/træmmer-off.png")')}, 500)
+        setTimeout(()=>{musInput.removeAttribute('disabled')}, 500)
         client.publish('xmasEscape', 'lys indtastet')
-        musInput.removeAttribute('disabled')
         counter++
     }
-    if(key == 'Enter' && currentPage == '#pass' && counter == 0){
-        if(passInput.value().toLowerCase() == 'nisse'){
-            counter++
-            setTimeout(()=>{shiftPage('#codes')}, 2000)
-        }else{
-            alert('Forkert kode!!')
-        }
-    }else if(key == 'Enter' && currentPage == '#codes' && counter == 1){
-        if(lysInput.value().toLowerCase() == 'julemand'){
-            counter++
-            client.publish('xmasEscape', 'lys indtastet')
-        }else{
-            alert('Forkert kodeeeee!')
-        }
-    }else if(key == 'Enter' && currentPage == '#codes' && counter == 2){
-        if(musInput.value().toLowerCase() == '12'){
-            client.publish('xmasEscape', 'mus indtastet')
-        }else{
-            alert('Forkert kodeeeeeeeeeee!!!!!!!!!')
-        }
+
+    //Når tredje kode er skrevet rigtigt ind
+    if(musInput.value().toLowerCase() + '2' == '12' && currentPage == '#codes' && counter == 2){
+        setTimeout(()=>{musInput.attribute('disabled', 1)}, 100)
+        musInputBox.style('background-color', 'green')
+        musImage.style('background-image', 'url("./assets/lock-open.png")')
+        morseButton.style('visibility', 'visible')
+        morseButton.style('opacity', '100%')
+        client.publish('xmasEscape', 'mus indtastet')
+    }
+
+    //Hvis morsekodealfabet er synligt, kan man lukke igen med escape
+    if(key == 'Escape' && counter == 3){
+        counter--
+        morseHelp.style('opacity', '0%')
+        setTimeout(()=>{morseHelp.style('visibility', 'hidden')}, 500)
+        grayBackground.style('opacity', '0%')
+        setTimeout(()=>{grayBackground.style('visibility', 'hidden')}, 500)
     }
 }
 
@@ -103,10 +107,19 @@ function shiftPage(pageId){
 
 //Funktion der henter alle id'er fra html, så de nemt kan bruges
 function initVars(){
+    passImage = select('#passImage')
     passInput = select('#passInput')
+    passInputBox = select('#passInputBox')
     passButton = select('#passButton')
+    lysImage = select('#lysImage')
     lysInput = select('#lysInput')
+    lysInputBox = select('#lysInputBox')
     lysButton = select('#lysButton')
+    musImage = select('#musImage')
     musInput = select('#musInput')
+    musInputBox = select('#musInputBox')
     musButton = select('#musButton')
+    morseButton = select('#morseButton')
+    grayBackground = select('#grayBackground')
+    morseHelp = select('#morseHelp')
 }
