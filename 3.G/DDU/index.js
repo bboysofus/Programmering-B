@@ -58,7 +58,7 @@ function setup(){
 //Funktion der lytter på tast fra tastatur
 function keyPressed(){
     //Når første kode er skrevet rigtigt ind
-    if(passInput.value().toLowerCase() + 'e' == 'nisse' && currentPage == '#pass' && counter == 0){
+    if(passInput.value().toLowerCase() + '2' == '241222' && currentPage == '#pass' && counter == 0){
         setTimeout(()=>{passInput.value('')}, 100)
         setTimeout(()=>{passInput.attribute('disabled', 1)}, 100)
         passInputBox.style('background-color', 'green')
