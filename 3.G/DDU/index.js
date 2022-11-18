@@ -64,6 +64,7 @@ function keyPressed(){
         passInputBox.style('background-color', 'green')
         passImage.style('background-image', 'url("./assets/lock-open.png")')
         counter++
+        client.publish('xmasEscape', 'lysBegin')
         setTimeout(()=>{shiftPage('#codes')}, 1000)
     }
 
@@ -74,7 +75,7 @@ function keyPressed(){
         lysImage.style('background-image', 'url("./assets/lock-open.png")')
         setTimeout(()=>{musInput.style('background-image', 'url("assets/træmmer-off.png")')}, 500)
         setTimeout(()=>{musInput.removeAttribute('disabled')}, 500)
-        client.publish('xmasEscape', 'lys indtastet')
+        client.publish('xmasEscape', 'lysDone')
         counter++
     }
 
@@ -85,7 +86,7 @@ function keyPressed(){
         musImage.style('background-image', 'url("./assets/lock-open.png")')
         morseButton.style('visibility', 'visible')
         morseButton.style('opacity', '100%')
-        client.publish('xmasEscape', 'mus indtastet')
+        client.publish('xmasEscape', 'musDone')
     }
 
     //Hvis morsekodealfabet er synligt, kan man lukke igen med escape
