@@ -2,13 +2,15 @@
 let currentPage = '#pass'
 
 //Initialisér variabler
-let passImage, passInput, passInputBox, passButton, lysImage, lysInput, lysInputBox, lysButton, musImage, musInput, musInputBox, musButton, morseButton, grayBackground, morseHelp
+let passImage, passInput, passInputBox, passButton, lysImage, lysInput, lysInputBox, lysButton, musImage, musInput, musInputBox, musButton, morseButton, grayBackground, morseHelp, videoButton, video
 
 //Opret client, som skal connecte til mqtt
 let client
 
 //Variabel til at tjekke, hvor langt i spillet vi er
 let counter = 0
+
+let upper = 0
 
 function setup(){
     //Vi fjerner p5 canvas, da det ikke skal bruges
@@ -53,6 +55,20 @@ function setup(){
         grayBackground.style('opacity', '0%')
         setTimeout(()=>{grayBackground.style('visibility', 'hidden')}, 500)
     })
+
+    videoButton.mouseClicked(()=>{
+        if(counter==0){
+            video.style('top', '15vh')
+            console.log('Visible');
+            counter++
+        }
+        
+        else if(video.style('top', '15vh')){
+            video.style('top', '-100vh')
+            console.log('Hidden');
+            counter--
+        }
+    })
 }
 
 //Funktion der lytter på tast fra tastatur
@@ -80,7 +96,7 @@ function keyPressed(){
     }
 
     //Når tredje kode er skrevet rigtigt ind
-    if(musInput.value().toLowerCase() + '2' == '12' && currentPage == '#codes' && counter == 2){
+    if(musInput.value().toLowerCase() + 's' == 'mus' && currentPage == '#codes' && counter == 2){
         setTimeout(()=>{musInput.attribute('disabled', 1)}, 100)
         musInputBox.style('background-color', 'green')
         musImage.style('background-image', 'url("./assets/lock-open.png")')
@@ -96,6 +112,11 @@ function keyPressed(){
         setTimeout(()=>{morseHelp.style('visibility', 'hidden')}, 500)
         grayBackground.style('opacity', '0%')
         setTimeout(()=>{grayBackground.style('visibility', 'hidden')}, 500)
+    }
+
+    if(key == 'Escape' && counter == 1){
+        video.style('top', '-100vh')
+        counter--
     }
 }
 
@@ -123,4 +144,6 @@ function initVars(){
     morseButton = select('#morseButton')
     grayBackground = select('#grayBackground')
     morseHelp = select('#morseHelp')
+    videoButton = select('#videoButton')
+    video = select('#video')
 }

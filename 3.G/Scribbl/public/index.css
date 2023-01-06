@@ -13,7 +13,7 @@
     width:100vw;
     height: 100vh;
     padding: 1rem;
-    background:white;
+    background:rgb(138, 239, 255);
     position:fixed;
     left:-100vw;
     transition: ease-in-out .5s;
@@ -45,23 +45,8 @@
 }
 .timer{
     font-size:3rem;
-    color:#1AAE9F;
+    color:#ff4848;
     font-weight:bold;
-}
-.hands{
-    display:grid;
-    grid-auto-flow:column;
-    gap:.3rem;
-}
-.hand{
-    width:4rem;
-    height:4rem;
-    border:4px solid #1AAE9F;
-    border-radius: .3rem;
-    display:grid;
-    place-items:center;
-    font-size:2rem;
-    cursor:pointer;
 }
 
 .picture{
@@ -76,7 +61,7 @@
 }
 
 button{
-    background-color: #1AAE9F;
+    background-color: #ffc526;
     border:none;
     color: white;
     padding:.3rem;
@@ -112,7 +97,7 @@ input{
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    background: #666;
+    background: rgb(255, 0, 0);
     animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
   @keyframes lds-circle {

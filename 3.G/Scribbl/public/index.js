@@ -2,12 +2,13 @@ let clientSocket
 let currentPage = '#name'
 let nameInput, nameButton, drawingWord, rejectButton, lobbyText, timer, winner, restartButton, guessButton, canvas, guessInput, chat, chatBox, go, thickness
 let c
+let myRole = ''
 
 function setup(){
   frameRate(400)
   //laver et canvas til "tegning"
   c = createCanvas(200, 200)
-  background('green')
+  background('white')
   //log på serveren 
   clientSocket = io.connect()
   //Vi kalder funktionen initVars(), så vi kan bruge alle vores select's (længere nede i dokumentet) alle steder
@@ -61,8 +62,10 @@ function setup(){
         drawingWord.html('Tegn: ' + obj.word)
         guessInput.hide()
         guessButton.hide()
+        myRole = 'draw'
       }else{
         drawingWord.html('Gæt ordet')
+        myRole = 'guess'
       }
       //modtag ordet fra drawings arrayet
       drawingWord.html(obj.word)
@@ -75,7 +78,7 @@ function setup(){
     clientSocket.on('draw', obj => {
       //Vi tegner ellipser ud fra det obj, som vi får fra serveren. Dvs, når tegneren dragger musen hen ad canvas, tegner den ellipser på mouseX og mouseY.
       noStroke()
-      fill('white')
+      fill('black')
       ellipse(obj.x, obj.y, 10, 10)
     })
     
@@ -93,11 +96,13 @@ function setup(){
 //Når klient dragger musen
 function mouseDragged(){
   //Vi laver et json obj med musepositionerne på skærmen og sender det til serveren
-  let obj = {
-    x: mouseX,
-    y: mouseY
+  if(myRole == 'draw'){
+    let obj = {
+      x: mouseX,
+      y: mouseY
+    }
+    clientSocket.emit('coords', obj)
   }
-  clientSocket.emit('coords', obj)
 }
 
 function shiftPage(pageId){

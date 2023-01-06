@@ -11,13 +11,19 @@
 </head>
 <body>
     <div class="page" id="pass">
+        <div id="video" style="position: absolute; top: -100vh; transition: .5s all ease-in-out;">
+            <div>
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/UiLkkG37kGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
         <div class="title">Indtast kode</div>
         <div class="input">
             <div class="inputBox" id="passInputBox">
                 <div class="image" id="passImage"></div>
-                <input id="passInput" type="text" placeholder="Aa">
+                <input id="passInput" type="text" placeholder="Aa" autocomplete="off">
             </div>
         </div>
+        <button id="videoButton">Åbn introvideo</button>
     </div>
 
     <div class="page" id="codes">
@@ -30,7 +36,7 @@
                 <div class="input">
                     <div class="inputBox" id="lysInputBox">
                         <div class="image" id="lysImage"></div>
-                        <input type="text" id="lysInput" placeholder="Aa">
+                        <input type="text" id="lysInput" placeholder="Aa" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -40,7 +46,7 @@
                 <div class="input">
                     <div class="inputBox" id="musInputBox">
                         <div class="image" id="musImage"></div>
-                        <input type="text" id="musInput" placeholder="Aa" disabled  >
+                        <input type="text" id="musInput" placeholder="Aa" disabled autocomplete="off">
                     </div>
                 </div>
             </div>
