@@ -9,25 +9,32 @@
 	let magic = false
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<input type="text" bind:value={name}>
-	<button on:click={()=>{names = [...names, name]; name=''}} >Add to list</button>
-	<button on:click={()=>magic=!magic}>Tryllestav</button>
-	{#if magic}
-	<div class="people">
-		{#each names as n, index}
-			<div transition:fly="{{ y: 200, duration: 2000, delay:index*100}}" class="person" on:click={()=>removeItem(index)}> {n}</div>
-		{/each}
-	</div>
-	{/if}
-</main>
+<body>
+	<main>
+		<h1>Hello {name}!</h1>
+		<input type="text" bind:value={name}>
+		<button on:click={()=>{names = [...names, name]; name=''}} >Add to list</button>
+		<button on:click={()=>magic=!magic}>Tryllestav</button>
+		{#if magic}
+		<div class="people">
+			{#each names as n, index}
+				<div transition:fly="{{ y: 200, duration: 2000, delay:index*100}}" class="person" on:click={()=>removeItem(index)}> {n}</div>
+			{/each}
+		</div>
+		{/if}
+	</main>
+</body>
 
 <style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
 	main {
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		background-color: red;
+		width: 100vw;
+		height: 100vh;
 	}
 
 	.people{
@@ -55,9 +62,4 @@
 		font-weight: 100;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
