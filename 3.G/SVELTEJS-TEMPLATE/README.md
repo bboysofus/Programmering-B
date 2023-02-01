@@ -5,4 +5,4 @@
 
 - A svelte app consist of a main.js file - this is where the show begins.
 - It imports app.svelte which is our starting point.
-- From there we can create our own sub-components, usuallt in the folder 'components'
+- From here we can create our own sub-components, usuallt in the folder 'components' with capital starting letter
