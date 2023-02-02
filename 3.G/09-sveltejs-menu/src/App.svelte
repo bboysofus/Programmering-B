@@ -1,9 +1,27 @@
 <script>
-	let menu = ['frontpage', 'find cocktail', 'saved cocktails']
+    import MenuItem from "./components/MenuItem.svelte";
+	import FindCocktail from "./components/FindCocktail.svelte";
+	import SavedCocktail from "./components/SavedCocktail.svelte";
+	import FrontPage from "./components/FrontPage.svelte";
+
+	let menu = ['Frontpage', 'Find Cocktail', 'Saved Cocktails']
+	let activePage = menu[0]
 </script>
 
+<header>
+	{#each menu as page}
+		<MenuItem bind:activePage={activePage} title = {page}/>
+	{/each}
+</header>
+
 <main>
-	<h1>Hello svelte!</h1>
+	{#if activePage == menu[0]}
+		<FrontPage />
+	{:else if  activePage == menu[1]}
+		<FindCocktail />
+	{:else if activePage == menu[2]}
+		<SavedCocktail />
+	{/if}
 </main>
 
 <style>
@@ -11,6 +29,13 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;	
+	}
+
+	header{
+		display: grid;
+		height: 10vh;
+		grid-auto-flow: column;
+		place-items: center;
 	}
 
 	main{
