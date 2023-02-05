@@ -13,7 +13,7 @@ body{
 }
 
 main{
-    height:100vh;
+    height:100%;
     width:100vw;
 }
 
@@ -42,7 +42,7 @@ main{
 }
 
 .page{
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: grid;
     place-items: center;
@@ -57,7 +57,7 @@ h1{
 }
 
 #splash{
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color:orangered;
     position: relative;
