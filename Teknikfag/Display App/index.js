@@ -1,5 +1,3 @@
-let canvas
-
 let borders
 let borderTop
 let borderLeft
@@ -11,6 +9,7 @@ let openButton
 let closeButton
 
 function setup(){
+    noCanvas()
     borders = selectAll('.border')
     borderTop = select('#borderTop')
     borderLeft = select('#borderLeft')
