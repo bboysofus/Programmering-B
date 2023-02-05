@@ -52,17 +52,11 @@ h1{
     color:#eee;
 }
 
-#boldspil{
-    background-color:green;
-}
-
-#task{
-    background-color:plum;
-}
-
 #splash{
+    height: 100vh;
+    width: 100vw;
     background-color:orangered;
-    position:relative;
+    position: relative;
     display: grid;
     place-items: center;
 }
@@ -86,7 +80,7 @@ h1{
 #fiveElement{
     transition: 1s all;
     background-color: rgba(255,255,255,0);
-    position: fixed;
+    position: absolute;
     height: 8.5rem;
     width: 8.5rem;
 }
