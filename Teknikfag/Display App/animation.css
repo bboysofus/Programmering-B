@@ -1,0 +1,258 @@
+.fadeInClass{
+    animation: fadeIn .2s ease-in-out forwards;
+}
+
+.fadeOutClass{
+    animation: fadeOut .5s ease-in-out forwards;
+}
+
+.stretchClass{
+    animation: stretch 1s ease-in forwards;
+}
+
+.startRotate1Class{
+    animation: startRotate1 .1s linear forwards;
+}
+
+.startRotate2Class{
+    animation: startRotate2 .1s linear forwards;
+}
+
+.rotate1Class{
+    animation: rotate1 .2s linear forwards;
+}
+
+.rotate1k1Class{
+    animation: rotate1k1 .2s linear forwards;
+}
+
+.rotate2Class{
+    animation: rotate2 .1s linear forwards;
+}
+
+.rotate2k1Class{
+    animation: rotate2k1 .1s linear forwards;
+}
+
+.rotate3Class{
+    animation: rotate3 .2s linear forwards;
+}
+
+.rotate3k1Class{
+    animation: rotate3k1 .2s linear forwards;
+}
+
+.anim1DoneClass{
+    animation: anim1Done 1s ease-out forwards;
+}
+
+.anim1k1DoneClass{
+    animation: anim1k1Done 1s ease-out forwards;
+}
+
+.openParentClass{
+    animation: openParent 1s ease-in-out forwards;
+}
+
+.openChild1Class{
+    animation: openChild1 1s ease-in-out forwards;
+}
+
+.openChild2Class{
+    animation: openChild2 1s ease-in-out forwards;
+}
+
+.closeParentClass{
+    animation: closeParent 1s ease-in-out forwards;
+}
+
+.closeChild1Class{
+    animation: closeChild1 1s ease-in-out forwards;
+}
+
+.closeChild2Class{
+    animation: closeChild2 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn{
+    0%{
+        background-color:rgba(255,255,255,0);
+    }
+    100%{
+        background-color:rgba(255,255,255,1);
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        background-color:rgba(255,255,255,1);
+    }
+    100%{
+        background-color:rgba(255,255,255,0);
+    }
+}
+
+@keyframes stretch{
+    0%{
+        height: 25px;
+    }
+    100%{
+        height: 100px;
+    }
+}
+
+@keyframes startRotate1{
+    0%{
+        width: 25px;
+    }
+    100%{
+        width: 50px;
+    }
+}
+
+@keyframes startRotate2{
+    0%{
+        height: 100px;
+    }
+    100%{
+        height: 75px;
+    }
+}
+
+@keyframes rotate1{
+    0%{
+        width: 50px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+@keyframes rotate1k1{
+    0%{
+        height: 75px;
+    }
+    100%{
+        height: 25px;
+    }
+}
+
+@keyframes rotate2{
+    0%{
+        width: 100px;
+    }
+    100%{
+        width: 75px;
+    }
+}
+
+@keyframes rotate2k1{
+    0%{
+        height: 25px;
+    }
+    100%{
+        height: 50px;
+    }
+}
+
+@keyframes rotate3 {
+    0%{
+        width: 75px;
+    }
+    100%{
+        width: 25px;
+    }
+}
+
+@keyframes rotate3k1 {
+    0%{
+        height: 50px;
+    }
+    100%{
+        height: 100px;
+    }
+}
+
+@keyframes anim1Done{
+    0%{
+        height: 25px;
+    }
+    100%{
+        height: 60px;
+    }
+}
+
+@keyframes anim1k1Done{
+    0%{
+        width: 100px;
+    }
+    100%{
+        width: 60px;
+    }
+}
+
+@keyframes openParent{
+    0%{
+        height: 16rem;
+        width: 16rem;
+    }
+    100%{
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@keyframes openChild1{
+    0%{
+        width: 25px;
+        height: 60px;
+    }
+    100%{
+        width: 12.5px;
+        height: 60px;
+    }
+}
+
+@keyframes openChild2{
+    0%{
+        height: 25px;
+        width: 60px;
+    }
+    100%{
+        height: 12.5px;
+        width: 60px;
+    }
+}
+
+@keyframes closeParent{
+    0%{
+        height: 100vh;
+        width: 100vw;
+    }
+    100%{
+        height: 16rem;
+        width: 16rem;
+    }
+}
+
+@keyframes closeChild1{
+    0%{
+        width: 12.5px;
+        height: 60px;
+    }
+    100%{
+        width: 25px;
+        height: 60px;
+    }
+}
+
+@keyframes closeChild2{
+    0%{
+        height: 12.5px;
+        width: 60px;
+    }
+    100%{
+        height: 25px;
+        width: 60px;
+    }
+}

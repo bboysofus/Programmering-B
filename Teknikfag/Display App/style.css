@@ -13,6 +13,30 @@ body{
     overflow:hidden;
 }
 
+#buttonParent{
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.button1{
+    margin: 0;
+    padding: 0;
+}
+
+#openButton, #closeButton{
+    border: 2px solid pink;
+    text-align: center;
+    width: 10rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
 .page{
     height:100vh;
     width:100vw;
@@ -30,9 +54,23 @@ body{
     transition: .5s ease-in-out;
 }
 
+h1{
+    color:#eee;
+}
+
+#boldspil{
+    background-color:green;
+}
+
+#task{
+    background-color:plum;
+}
+
 #splash{
     background-color:orangered;
     position:relative;
+    display: grid;
+    place-items: center;
 }
 
 #lightstrip{
@@ -52,15 +90,15 @@ body{
 }
 
 #fiveElement{
-    transition: 1s all ease-in-out;
+    transition: 1s all;
     background-color: rgba(255,255,255,0);
     position: fixed;
-    height: 16rem;
-    width: 16rem;
+    height: 8.5rem;
+    width: 8.5rem;
 }
 
 .border{
-    transition: 1s all;
+    transition: 2s all;
     margin: 3rem;
     position: absolute;
     background-color: white;
@@ -68,18 +106,9 @@ body{
     opacity: 0%;
 }
 
-#borderTop{
-    top: 0;
-}
-
-#borderLeft{
-    top: 0;
-    left: 0;
-}
-
 #borderRight{
-    right: 0;
     bottom: 0;
+    right: 0;
 }
 
 #borderBottom{
@@ -97,46 +126,3 @@ body{
     width: 25px;
 }
 
-.fadeInClass{
-    animation: fadeIn .2s ease-in-out forwards;
-}
-
-.fadeOutClass{
-    animation: fadeOut .5s ease-in-out forwards;
-}
-
-#boldspil{
-    background-color:green;
-}
-
-#ballgame{
-}
-
-#task{
-    background-color:plum;
-}
-
-h1{
-    color:#eee;
-}
-
-canvas{
-}
-
-@keyframes fadeIn{
-    0%{
-        background-color:rgba(255,255,255,0);
-    }
-    100%{
-        background-color:rgba(255,255,255,1);
-    }
-}
-
-@keyframes fadeOut{
-    0%{
-        background-color:rgba(255,255,255,1);
-    }
-    100%{
-        background-color:rgba(255,255,255,0);
-    }
-}
