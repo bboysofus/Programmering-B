@@ -8,6 +8,8 @@ let fiveElementDiv
 let openButton
 let closeButton
 
+let gameSelect
+
 function setup(){
     noCanvas()
     borders = selectAll('.border')
@@ -19,6 +21,9 @@ function setup(){
 
     openButton = select('#openButton')
     closeButton = select('#closeButton')
+
+    gameSelect = select('#gameSelect')
+
     background('orange')
     //MQTT STUFF
     //forsøg at oprette forbindelse til MQTT serveren 
@@ -266,6 +271,7 @@ function rotateAnim2(){
 
                         setTimeout(() => {
                             fiveElementDiv.addClass('openParentClass')
+                            gameSelect.addClass('openInnerPageClass')
 
                             borderLeft.removeClass('anim1DoneClass')
                             borderLeft.addClass('openChild2Class')
@@ -276,6 +282,10 @@ function rotateAnim2(){
                             borderTop.addClass('openChild1Class')
                             borderBottom.removeClass('anim1k1DoneClass')
                             borderBottom.addClass('openChild1Class')
+
+                            setTimeout(() => {
+                                borders.map( c => c.elt.style.backgroundColor = '#F70101')
+                            }, 1000);
                         }, 1000);
                     }, 200);
                 }, 100);
@@ -289,6 +299,9 @@ function rotateAnim2(){
 function openAnim(){
     console.log('opening');
 
+    gameSelect.removeClass('closeInnerPageClass')
+    gameSelect.addClass('openInnerPageClass')
+
     fiveElementDiv.removeClass('closeParentClass')
     fiveElementDiv.addClass('openParentClass')
 
@@ -301,10 +314,14 @@ function openAnim(){
     borderTop.addClass('openChild1Class')
     borderBottom.removeClass('closeChild1Class')
     borderBottom.addClass('openChild1Class')
+    
 }
 
 function closeAnim(){
     console.log('closing');
+    
+    gameSelect.removeClass('openInnerPageClass')
+    gameSelect.addClass('closeInnerPageClass')
 
     fiveElementDiv.removeClass('openParentClass')
     fiveElementDiv.addClass('closeParentClass')
