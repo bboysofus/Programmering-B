@@ -4,7 +4,6 @@ let borderLeft
 let borderRight
 let borderBottom
 let fiveElementDiv
-let canvas 
 
 let openButton
 let closeButton
@@ -13,6 +12,7 @@ let gameSelect
 let joystick
 let joystickGame
 let joystickStart
+let closeAnimVar = 0
 
 function setup(){
     borders = selectAll('.border')
@@ -32,24 +32,29 @@ function setup(){
     canvas.hide()
 
     joystick.mousePressed(()=>{
-        closeAnim()
+        gameSelect.style('opacity', '0%')
+        gameSelect.style('visibility', 'hidden')
         setTimeout(() => {
-            gameSelect.hide()
-            openAnim()
-            gameSelect.removeClass('openInnerPageClass')
-            joystickGame.addClass('openInnerPageClass')
-        }, 1000);
+            closeAnim()
+            setTimeout(() => {
+                openAnim()
+                setTimeout(() => {
+                    joystickGame.style('opacity', '100%')
+                    joystickGame.style('visibility', 'visible')
+                }, 1000);
+            }, 1000);
+        }, 500);
     }
     )
 
     select('#joystickStart').mousePressed(
         ()=>{
-            canvas.show()
             setupGame()
             console.log('show game')
             select('#joystickGame').child(canvas)
-            select('#joystickGame').style('opacity', '100%')
+            select('#joystickGame').style('border', 'none')
             select('#joystickStart').style('visibility', 'hidden')
+            canvas.show()
             ballgameStarted = true
         }
     )
@@ -296,17 +301,21 @@ function rotateAnim2(){
 
                         setTimeout(() => {
                             fiveElementDiv.addClass('openParentClass')
-                            gameSelect.addClass('openInnerPageClass')
-
+                            
                             borderLeft.removeClass('anim1DoneClass')
                             borderLeft.addClass('openChild2Class')
                             borderRight.removeClass('anim1DoneClass')
                             borderRight.addClass('openChild2Class')
-
+                            
                             borderTop.removeClass('anim1k1DoneClass')
                             borderTop.addClass('openChild1Class')
                             borderBottom.removeClass('anim1k1DoneClass')
                             borderBottom.addClass('openChild1Class')
+
+                            setTimeout(() => {
+                                gameSelect.style('opacity', '100%')
+                                gameSelect.style('visibility', 'visible')
+                            }, 700);
 
                             setTimeout(() => {
                                 borders.map( c => c.elt.style.backgroundColor = '#F70101')
@@ -322,10 +331,7 @@ function rotateAnim2(){
 
 
 function openAnim(){
-    console.log('opening');
-
-    gameSelect.removeClass('closeInnerPageClass')
-    gameSelect.addClass('openInnerPageClass')
+    console.log('opening')
 
     fiveElementDiv.removeClass('closeParentClass')
     fiveElementDiv.addClass('openParentClass')
@@ -343,10 +349,7 @@ function openAnim(){
 }
 
 function closeAnim(){
-    console.log('closing');
-    
-    gameSelect.removeClass('openInnerPageClass')
-    gameSelect.addClass('closeInnerPageClass')
+    console.log('closing')
 
     fiveElementDiv.removeClass('openParentClass')
     fiveElementDiv.addClass('closeParentClass')
@@ -375,5 +378,32 @@ function draw(){
         show()
         //select('#info').html(score)
         collission()
+    }
+    
+    if(score == 2 && closeAnimVar == 0){
+        ballgameStarted = false
+        select('#checkSign').style('opacity', '100%')
+        closeAnimVar = 1
+        if(closeAnimVar == 1){
+            closeAnimVar = 2
+            setTimeout(() => {
+                canvas.hide()
+                joystickGame.style('border', '1px solid black')
+                joystickGame.style('opacity', '0%')
+                joystickGame.style('visibility', 'hidden')
+
+                setTimeout(() => {
+                    closeAnim()
+                    
+                    setTimeout(() => {
+                        openAnim()
+                        setTimeout(() => {
+                            gameSelect.style('opacity', '100%')
+                            gameSelect.style('visibility', 'visible')
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            })
+        }
     }
 }

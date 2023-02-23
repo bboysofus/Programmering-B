@@ -1,5 +1,6 @@
 
 let currentPage = '#splash'
+let canvas
 let ballgameStarted = false
 
 //ballgame stuff
@@ -68,7 +69,6 @@ function setupGame(){
     rectH = 35
     rectX = windowWidth - rect1W
     rectY = 0
-
 }
 
 
@@ -99,7 +99,7 @@ function show(){
     // if(a >= 3 && a < 4)image(bird4, x, y)
     // if(a >= 4)image(bird5, x, y)
 
-    text(score, windowWidth/1.9, 50)
+    text(score, 120, 50)
     textSize(50)
     
     image(car, x, y, carW, 90)
