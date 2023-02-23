@@ -99,7 +99,8 @@ function show(){
     // if(a >= 3 && a < 4)image(bird4, x, y)
     // if(a >= 4)image(bird5, x, y)
 
-    text(score, 50, 50)
+    text(score, windowWidth/1.9, 50)
+    textSize(50)
     
     image(car, x, y, carW, 90)
     
