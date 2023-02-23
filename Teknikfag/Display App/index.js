@@ -4,6 +4,7 @@ let borderLeft
 let borderRight
 let borderBottom
 let fiveElementDiv
+let canvas 
 
 let openButton
 let closeButton
@@ -21,23 +22,21 @@ function setup(){
     borderBottom = select('#borderBottom')
     fiveElementDiv = select('#fiveElement')
 
-    openButton = select('#openButton')
-    closeButton = select('#closeButton')
 
     gameSelect = select('#gameSelect')
     joystick = select('#joystick')
     joystickGame = select('#joystickGame')
     joystickStart = select('#joystickStart')
 
-    canvas = createCanvas('265', '555')
+    canvas = createCanvas(265, 555)
     canvas.hide()
 
     joystick.mousePressed(()=>{
         closeAnim()
         setTimeout(() => {
+            gameSelect.hide()
             openAnim()
             gameSelect.removeClass('openInnerPageClass')
-            gameSelect.elt.style.left = '-100vh'
             joystickGame.addClass('openInnerPageClass')
         }, 1000);
     }
@@ -45,17 +44,17 @@ function setup(){
 
     select('#joystickStart').mousePressed(
         ()=>{
+            canvas.show()
             setupGame()
             console.log('show game')
             select('#joystickGame').child(canvas)
-            select('#joystickGame').style('opacity', '0%')
-            gameSelect.hide()
-            canvas.show()
+            select('#joystickGame').style('opacity', '100%')
+            select('#joystickStart').style('visibility', 'hidden')
             ballgameStarted = true
         }
     )
 
-    background('yellow')
+    background('orange')
     //MQTT STUFF
     //forsøg at oprette forbindelse til MQTT serveren 
     client = mqtt.connect('wss://mqtt.nextservices.dk')
@@ -79,13 +78,6 @@ function setup(){
     //test
     animateLights()
 
-    openButton.mouseClicked(()=>{
-        openAnim()
-    })
-
-    closeButton.mouseClicked(()=>{
-        closeAnim()
-    })
 }
 
 

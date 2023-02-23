@@ -17,30 +17,6 @@ main{
     width:100vw;
 }
 
-#buttonParent{
-    position: absolute;
-    bottom: 0;
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-bottom: 1rem;
-}
-
-.button1{
-    margin: 0;
-    padding: 0;
-}
-
-#openButton, #closeButton{
-    border: 2px solid pink;
-    text-align: center;
-    width: 10rem;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-}
-
 .page{
     height: 100%;
     width: 100vw;
@@ -130,8 +106,6 @@ h1{
     width: 0px;
     opacity: 0%;
     margin: 5.5rem;
-    display: grid;
-    place-items: center;
 }
 
 #gameSelect{
@@ -161,10 +135,9 @@ h1{
 }
 
 #joystickGame{
+    background-color: rgba(0, 0, 0, 0.36);
     display: grid;
     place-items: center;
-    position: absolute;
-    top: 0;
 }
 
 #joystickStart{
@@ -172,4 +145,8 @@ h1{
     width: 50px;
     background-color: green;
     position: absolute;
+}
+
+#defaultCanvas0{
+    visibility: visible;
 }

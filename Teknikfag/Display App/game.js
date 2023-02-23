@@ -1,6 +1,5 @@
 
 let currentPage = '#splash'
-let canvas 
 let ballgameStarted = false
 
 //ballgame stuff
