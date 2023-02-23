@@ -402,8 +402,8 @@ function draw(){
                             gameSelect.style('visibility', 'visible')
                         }, 1000);
                     }, 1000);
-                }, 1000);
-            })
+                }, 500);
+            }, 1000)
         }
     }
 }
