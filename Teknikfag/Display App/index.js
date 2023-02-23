@@ -396,6 +396,8 @@ function draw(){
                     closeAnim()
                     
                     setTimeout(() => {
+                        select('#joystick').style('border', '4px #05f701 solid')
+                        select('#joystick').style('backgroundColor', '#2af7017c')
                         openAnim()
                         setTimeout(() => {
                             gameSelect.style('opacity', '100%')
