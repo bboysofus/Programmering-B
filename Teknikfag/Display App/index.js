@@ -9,9 +9,11 @@ let openButton
 let closeButton
 
 let gameSelect
+let joystick
+let joystickGame
+let joystickStart
 
 function setup(){
-    noCanvas()
     borders = selectAll('.border')
     borderTop = select('#borderTop')
     borderLeft = select('#borderLeft')
@@ -23,8 +25,37 @@ function setup(){
     closeButton = select('#closeButton')
 
     gameSelect = select('#gameSelect')
+    joystick = select('#joystick')
+    joystickGame = select('#joystickGame')
+    joystickStart = select('#joystickStart')
 
-    background('orange')
+    canvas = createCanvas('265', '555')
+    canvas.hide()
+
+    joystick.mousePressed(()=>{
+        closeAnim()
+        setTimeout(() => {
+            openAnim()
+            gameSelect.removeClass('openInnerPageClass')
+            gameSelect.elt.style.left = '-100vh'
+            joystickGame.addClass('openInnerPageClass')
+        }, 1000);
+    }
+    )
+
+    select('#joystickStart').mousePressed(
+        ()=>{
+            setupGame()
+            console.log('show game')
+            select('#joystickGame').child(canvas)
+            select('#joystickGame').style('opacity', '0%')
+            gameSelect.hide()
+            canvas.show()
+            ballgameStarted = true
+        }
+    )
+
+    background('yellow')
     //MQTT STUFF
     //forsøg at oprette forbindelse til MQTT serveren 
     client = mqtt.connect('wss://mqtt.nextservices.dk')
@@ -56,6 +87,8 @@ function setup(){
         closeAnim()
     })
 }
+
+
 
 //når vi får mqtt besked om at starte
 function animateLights(){
@@ -285,7 +318,7 @@ function rotateAnim2(){
 
                             setTimeout(() => {
                                 borders.map( c => c.elt.style.backgroundColor = '#F70101')
-                            }, 1000);
+                            }, 1);
                         }, 1000);
                     }, 200);
                 }, 100);
@@ -342,4 +375,13 @@ function loadAnim(){
 }
 
 function draw(){
+    if(ballgameStarted){
+        background('orange')
+        update()
+        showRect()
+        updateRect()
+        show()
+        //select('#info').html(score)
+        collission()
+    }
 }

@@ -89,7 +89,6 @@ h1{
     position: absolute;
     height: 8.5rem;
     width: 8.5rem;
-    display: grid;
 }
 
 .border{
@@ -123,6 +122,20 @@ h1{
 
 .innerPage{
     transition: 1s all ease-in-out;
+    background-color: rgba(198, 11, 11, 0.756);
+    position: relative;
+    /* height: 555px;
+    width: 265px; */
+    height: 0px;
+    width: 0px;
+    opacity: 0%;
+    margin: 5.5rem;
+    display: grid;
+    place-items: center;
+}
+
+#gameSelect{
+    transition: 1s all ease-in-out;
     background-color: rgba(0, 0, 0, 0);
     position: relative;
     /* height: 555px;
@@ -145,4 +158,18 @@ h1{
     place-items: center;
     height: 100%;
     width: 100%;
+}
+
+#joystickGame{
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+}
+
+#joystickStart{
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    position: absolute;
 }
