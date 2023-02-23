@@ -5,6 +5,7 @@
     font-family: Roboto;
     margin:0;
     padding:0;
+    user-select: none;
 }
 
 body{
@@ -29,7 +30,7 @@ main{
 }
 
 h1{
-    color:#eee;
+    color:#2D9BF0;
     margin-bottom: 0;
     padding: 0;
 }
@@ -127,17 +128,17 @@ h1{
 
 .gameButton{
     border: 4px #f70101 solid;
-    background-color: #f701017c;
     position: relative;
     display: grid;
     place-items: center;
     height: 100%;
     width: 100%;
+    cursor: pointer;
 }
 
-#joystickGame{
+#joystickGame, #buttonGame{
     transition: .5s all ease-in-out;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, .20);
     border: 1px solid black;
     display: grid;
     place-items: center;
@@ -148,12 +149,10 @@ h1{
     position: absolute;
 }
 
-#joystickStart{
-    height: 50px;
-    width: 50px;
-    background-color: green;
-    position: absolute;
-
+#joystickStart, #buttonsStart{
+    height: 100px;
+    width: 100px;
+    filter: invert(54%) sepia(72%) saturate(2674%) hue-rotate(183deg) brightness(97%) contrast(93%);
 }
 
 #checkSign{
@@ -161,4 +160,30 @@ h1{
     transform: scale(30%);
     transition: .5s all ease-in-out;
     opacity: 0%;
+}
+
+#joystick{
+    background-image: url('./assets/Lag\ 2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#buttons{
+    background-image: url('./assets/Unavngivet.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#startDiv{
+    position: absolute;
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center;
+}
+
+#joystickStartTitle, #buttonsStartTitle{
+    margin-bottom: 0;
+    visibility: visible;
 }

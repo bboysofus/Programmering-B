@@ -14,6 +14,7 @@
 <body>
     <main>
         <div id="splash" class="page">
+
             <div id="fiveElement">
                 <div class="border" id="borderTop"></div>
                 <div class="border" id="borderLeft"></div>
@@ -22,14 +23,32 @@
                 
                 <div class="innerPage" id="gameSelect">
                     <h1 style="margin: 0; color: #2D9BF0;">VÆLG ET SPIL</h1>
-                    <div class="gameButton" id="joystick"></div>
-                    <div class="gameButton" id="buttons"></div>
+                    <div class="gameButton" id="joystick">
+                        <div id="overlay1" style="width: 100%; height: 100%; background-color: #f701017c;"></div>
+                    </div>
+                    <div class="gameButton" id="buttons">
+                        <div id="overlay2" style="width: 100%; height: 100%; background-color: #f701017c;"></div>
+                    </div>
                 </div>
+
                 <div class="innerPage" id="joystickGame">
                     <img id="checkSign" src="./assets/312459.png" alt="">
-                    <div id="joystickStart"></div>
+                    <div id="startDiv">
+                        <h1 id="joystickStartTitle">Start</h1>
+                        <img id="joystickStart" src="./assets/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png" alt="">
+                    </div>
                 </div>
+
+                <div class="innerPage" id="buttonGame">
+                    <img id="checkSign" src="./assets/312459.png" alt="">
+                    <div id="startDiv">
+                        <h1 id="buttonsStartTitle">Start</h1>
+                        <img id="buttonsStart" src="./assets/circular-play-button-svg-png-icon-download-onlinewebfontsm-30.png" alt="">
+                    </div>
+                </div>
+
             </div>
+
             <div id="lightstrip">
                 <div class="circle"></div>
                 <div class="circle"></div>

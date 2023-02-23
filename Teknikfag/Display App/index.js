@@ -12,7 +12,13 @@ let gameSelect
 let joystick
 let joystickGame
 let joystickStart
-let closeAnimVar = 0
+let buttons
+let buttonGame
+let buttonsStart
+let joystickStartTitle
+let buttonsStartTitle
+let closeAnimVar1 = 0
+let closeAnimVar2 = 0
 
 function setup(){
     borders = selectAll('.border')
@@ -27,35 +33,72 @@ function setup(){
     joystick = select('#joystick')
     joystickGame = select('#joystickGame')
     joystickStart = select('#joystickStart')
+    buttons = select('#buttons')
+    buttonGame = select('#buttonGame')
+    buttonsStart = select('#buttonsStart')
+    joystickStartTitle = select('#joystickStartTitle')
+    buttonsStartTitle = select('#buttonsStartTitle')
 
     canvas = createCanvas(265, 555)
     canvas.hide()
 
     joystick.mousePressed(()=>{
-        gameSelect.style('opacity', '0%')
-        gameSelect.style('visibility', 'hidden')
-        setTimeout(() => {
-            closeAnim()
+        if(closeAnimVar1 == 0){
+            gameSelect.style('opacity', '0%')
+            gameSelect.style('visibility', 'hidden')
             setTimeout(() => {
-                openAnim()
+                closeAnim()
                 setTimeout(() => {
-                    joystickGame.style('opacity', '100%')
-                    joystickGame.style('visibility', 'visible')
+                    openAnim()
+                    setTimeout(() => {
+                        joystickGame.style('opacity', '100%')
+                        joystickGame.style('visibility', 'visible')
+                    }, 1000);
                 }, 1000);
-            }, 1000);
-        }, 500);
-    }
+            }, 500);
+        }
+    })
+
+    buttons.mousePressed(()=>{
+        if(closeAnimVar2 == 0){
+            gameSelect.style('opacity', '0%')
+            gameSelect.style('visibility', 'hidden')
+            setTimeout(() => {
+                closeAnim()
+                setTimeout(() => {
+                    openAnim()
+                    setTimeout(() => {
+                        buttonGame.style('opacity', '100%')
+                        buttonGame.style('visibility', 'visible')
+                    }, 1000);
+                }, 1000);
+            }, 500);
+        }
+    })
+
+    joystickStart.mousePressed(
+        ()=>{
+            if(closeAnimVar1 == 0){
+                setupGame()
+                console.log('show joystick game')
+                joystickGame.child(canvas)
+                joystickGame.style('border', 'none')
+                joystickStart.style('visibility', 'hidden')
+                joystickStartTitle.style('visibility', 'hidden')
+                canvas.show()
+                ballgameStarted = true
+            }
+        }
     )
 
-    select('#joystickStart').mousePressed(
+    buttonsStart.mousePressed(
         ()=>{
-            setupGame()
-            console.log('show game')
-            select('#joystickGame').child(canvas)
-            select('#joystickGame').style('border', 'none')
-            select('#joystickStart').style('visibility', 'hidden')
-            canvas.show()
-            ballgameStarted = true
+            if(closeAnimVar2 == 0){
+                console.log('show buttons game')
+                buttonsStart.style('visibility', 'hidden')
+                buttonsStartTitle.style('visibility', 'hidden')
+                buttonGame.style('backgroundColor', 'rgba(0, 0, 0, 0)')
+            }
         }
     )
 
@@ -315,7 +358,7 @@ function rotateAnim2(){
                             setTimeout(() => {
                                 gameSelect.style('opacity', '100%')
                                 gameSelect.style('visibility', 'visible')
-                            }, 700);
+                            }, 1000);
 
                             setTimeout(() => {
                                 borders.map( c => c.elt.style.backgroundColor = '#F70101')
@@ -380,32 +423,34 @@ function draw(){
         collission()
     }
     
-    if(score == 2 && closeAnimVar == 0){
-        ballgameStarted = false
-        select('#checkSign').style('opacity', '100%')
-        closeAnimVar = 1
-        if(closeAnimVar == 1){
-            closeAnimVar = 2
-            setTimeout(() => {
-                canvas.hide()
-                joystickGame.style('border', '1px solid black')
-                joystickGame.style('opacity', '0%')
-                joystickGame.style('visibility', 'hidden')
-
+    if(score == 2 && closeAnimVar1 == 0){
+        setTimeout(() => {
+            ballgameStarted = false
+            select('#checkSign').style('opacity', '100%')
+            closeAnimVar1 = 1
+            if(closeAnimVar1 == 1){
+                closeAnimVar1 = 2
                 setTimeout(() => {
-                    closeAnim()
-                    
+                    canvas.hide()
+                    joystickGame.style('border', '1px solid black')
+                    joystickGame.style('opacity', '0%')
+                    joystickGame.style('visibility', 'hidden')
+    
                     setTimeout(() => {
-                        select('#joystick').style('border', '4px #05f701 solid')
-                        select('#joystick').style('backgroundColor', '#2af7017c')
-                        openAnim()
+                        closeAnim()
+                        
                         setTimeout(() => {
-                            gameSelect.style('opacity', '100%')
-                            gameSelect.style('visibility', 'visible')
+                            select('#joystick').style('border', '4px #05f701 solid')
+                            select('#overlay1').style('backgroundColor', '#2af7017c')
+                            openAnim()
+                            setTimeout(() => {
+                                gameSelect.style('opacity', '100%')
+                                gameSelect.style('visibility', 'visible')
+                            }, 1000);
                         }, 1000);
-                    }, 1000);
-                }, 500);
-            }, 1000)
-        }
+                    }, 500);
+                }, 1000)
+            }
+        }, 80);
     }
 }

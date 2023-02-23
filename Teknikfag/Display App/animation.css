@@ -54,10 +54,6 @@
     animation: openParent 1s ease-in-out forwards;
 }
 
-.openInnerPageClass{
-    animation: openInnerPage 1s ease-in-out forwards;
-}
-
 .openChild1Class{
     animation: openChild1 1s ease-in-out forwards;
 }
@@ -68,10 +64,6 @@
 
 .closeParentClass{
     animation: closeParent 1s ease-in-out forwards;
-}
-
-.closeInnerPageClass{
-    animation: closeInnerPage 1s ease-in-out forwards;
 }
 
 .closeChild1Class{
@@ -210,19 +202,6 @@
     }
 }
 
-@keyframes openInnerPage{
-    0%{
-        height: 0px;
-        width: 0px;
-        opacity: 0%;
-    }
-    100%{
-        height: 555px;
-        width: 265px;
-        opacity: 100%;
-    }
-}
-
 @keyframes openChild1{
     0%{
         width: 25px;
@@ -253,19 +232,6 @@
     100%{
         height: 16rem;
         width: 16rem;
-    }
-}
-
-@keyframes closeInnerPage{
-    0%{
-        height: 555px;
-        width: 265px;
-        opacity: 100%;
-    }
-    100%{
-        height: 0px;
-        width: 0px;
-        opacity: 0%;
     }
 }
 
