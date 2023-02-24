@@ -5,6 +5,8 @@ let borderRight
 let borderBottom
 let fiveElementDiv
 
+let startVar = 0
+
 let openButton
 let closeButton
 
@@ -19,6 +21,10 @@ let joystickStartTitle
 let buttonsStartTitle
 let closeAnimVar1 = 0
 let closeAnimVar2 = 0
+
+let red
+let green
+let blue
 
 function setup(){
     borders = selectAll('.border')
@@ -39,6 +45,10 @@ function setup(){
     joystickStartTitle = select('#joystickStartTitle')
     buttonsStartTitle = select('#buttonsStartTitle')
 
+    red = select('#red')
+    green = select('#green')
+    blue = select('#blue')
+
     canvas = createCanvas(275, 670)
     canvas.hide()
 
@@ -54,24 +64,55 @@ function setup(){
     
     client.subscribe('joystick')
     client.subscribe('knapspil')
+    client.subscribe('start')
 
 
     client.on('joystick', ms => {
 
     })
 
-    client.on('startAnimation', ms => {
-        animateLights()
+    client.on('message', (topic, message) => {
+        if(topic == 'start' && startVar == 0){
+            startVar = 1
+            console.log('Start');
+            setTimeout(() => {
+                sequenceStart()
+            }, 1400);
+        }
     })
 
     client.on('message', (topic, message) => {
         if(topic == 'knapspil' && message == 'forkert'){
             console.log('wrong');
+            setTimeout(() => {
+                sequenceStart()
+            }, 1500);
         }
 
         if(topic == 'knapspil' && message == 'rigtig'){
             console.log('correct');
+            closeAnimVar2 = 1
             select('#buttonsCheckSign').style('opacity', '100%')
+
+            setTimeout(() => {
+                buttonGame.style('opacity', '0%')
+                buttonGame.style('visibility', 'hidden')
+
+                setTimeout(() => {
+                    closeAnim()
+
+                    setTimeout(() => {
+                        select('#buttons').style('border', '4px #05f701 solid')
+                        select('#overlay2').style('backgroundColor', '#2af7017c')
+                        openAnim()
+
+                        setTimeout(() => {
+                            gameSelect.style('opacity', '100%')
+                            gameSelect.style('visibility', 'visible')
+                        }, 1000);
+                    }, 1000);
+                }, 500);
+            }, 1000);
         }
     })
 
@@ -79,30 +120,16 @@ function setup(){
         if(closeAnimVar1 == 0){
             gameSelect.style('opacity', '0%')
             gameSelect.style('visibility', 'hidden')
+
             setTimeout(() => {
                 closeAnim()
+
                 setTimeout(() => {
                     openAnim()
+
                     setTimeout(() => {
                         joystickGame.style('opacity', '100%')
                         joystickGame.style('visibility', 'visible')
-                    }, 1000);
-                }, 1000);
-            }, 500);
-        }
-    })
-
-    buttons.mousePressed(()=>{
-        if(closeAnimVar2 == 0){
-            gameSelect.style('opacity', '0%')
-            gameSelect.style('visibility', 'hidden')
-            setTimeout(() => {
-                closeAnim()
-                setTimeout(() => {
-                    openAnim()
-                    setTimeout(() => {
-                        buttonGame.style('opacity', '100%')
-                        buttonGame.style('visibility', 'visible')
                     }, 1000);
                 }, 1000);
             }, 500);
@@ -124,6 +151,24 @@ function setup(){
         }
     )
 
+    buttons.mousePressed(()=>{
+        if(closeAnimVar2 == 0){
+            closeAnimVar2
+            gameSelect.style('opacity', '0%')
+            gameSelect.style('visibility', 'hidden')
+            setTimeout(() => {
+                closeAnim()
+                setTimeout(() => {
+                    openAnim()
+                    setTimeout(() => {
+                        buttonGame.style('opacity', '100%')
+                        buttonGame.style('visibility', 'visible')
+                    }, 1000);
+                }, 1000);
+            }, 500);
+        }
+    })
+
     buttonsStart.mousePressed(
         ()=>{
             if(closeAnimVar2 == 0){
@@ -131,17 +176,27 @@ function setup(){
                 buttonsStart.style('visibility', 'hidden')
                 buttonsStartTitle.style('visibility', 'hidden')
                 buttonGame.style('backgroundColor', 'rgba(0, 0, 0, 0)')
-                client.publish('knapspil', 'start')
+
+                setTimeout(() => {
+                    select('#gameDiv').style('visibility', 'visible')
+                    select('#gameDiv').style('opacity', '100%')
+
+                    setTimeout(() => {
+                        sequenceStart()
+
+                        setTimeout(() => {
+                            client.publish('knapspil', 'start')
+                        }, 1400);
+                    }, 500);
+                }, 500);
             }
         }
     )
 
     background('orange')
     
-
-    //test
     animateLights()
-
+    //test
 }
 
 
@@ -426,6 +481,47 @@ function closeAnim(){
 
 function loadAnim(){
 
+}
+
+function sequenceStart(){
+    select('#buttonsGameTitle').html('Se sekvensen')
+
+    setTimeout(() => {
+        blue.style('backgroundColor', 'blue')
+    
+        setTimeout(() => {
+            blue.style('backgroundColor', 'rgba(0, 0, 255, 0.2)')
+            green.style('backgroundColor', 'green')
+    
+            setTimeout(() => {
+                green.style('backgroundColor', 'rgba(0, 128, 0, 0.2)')
+                blue.style('backgroundColor', 'blue')
+    
+                setTimeout(() => {
+                    blue.style('backgroundColor', 'rgba(0, 0, 255, 0.2)')
+                    red.style('backgroundColor', 'red')
+    
+                    setTimeout(() => {
+                        red.style('backgroundColor', 'rgba(255, 0, 0, 0.2)')
+                        green.style('backgroundColor', 'green')
+    
+                        setTimeout(() => {
+                            green.style('backgroundColor', 'rgba(0, 128, 0, 0.2)')
+                            blue.style('backgroundColor', 'blue')
+    
+                            setTimeout(() => {
+                                blue.style('backgroundColor', 'rgba(0, 0, 255, 0.2)')
+
+                                setTimeout(() => {
+                                    select('#buttonsGameTitle').html('Din tur')
+                                }, 300);
+                            }, 300);
+                        }, 300);
+                    }, 300);
+                }, 300);
+            }, 300);
+        }, 300);
+    }, 500);
 }
 
 function draw(){
