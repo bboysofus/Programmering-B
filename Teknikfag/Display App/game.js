@@ -9,7 +9,7 @@ let friction = .75
 let moveSpeed = 3
 let velocity = 0
 let rectX, rectY, rectW, rectH
-let rectSpeed = 4
+let rectSpeed = 8
 let score = 0
 let bird1, bird2, bird3, bird4, bird5, car
 let windowWidth = 265
@@ -141,7 +141,7 @@ function collission(){
     //     }
     // }
     // console.log(y, rectY, rectY + rectH)
-    if(y >= rectY && y <= rectY + rectH/10){
+    if(y >= rectY && y <= rectY + rectH/4){
         if(x >= rectX - 20 - carW && x <= rectX){
             score += 1
         }else{
