@@ -103,8 +103,8 @@ h1{
     position: relative;
     /* height: 555px;
     width: 265px; */
-    height: 0px;
-    width: 0px;
+    height: 100%;
+    width: 100%;
     opacity: 0%;
     margin: 5.5rem;
 }
@@ -115,14 +115,14 @@ h1{
     position: absolute;
     /* height: 555px;
     width: 265px; */
-    height: 555px;
+    height: 650px;
     width: 265px;
     opacity: 0%;
     visibility: hidden;
     margin: 5.5rem;
     display: grid;
     grid-template-rows: 1fr 3fr 3fr;
-    gap: 3rem;
+    gap: 5rem;
     place-items: center;
 }
 
@@ -142,7 +142,7 @@ h1{
     border: 1px solid black;
     display: grid;
     place-items: center;
-    height: 555px;
+    height: 690px;
     width: 265px;
     opacity: 0%;
     visibility: hidden;
