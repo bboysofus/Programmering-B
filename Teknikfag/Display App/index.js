@@ -42,6 +42,39 @@ function setup(){
     canvas = createCanvas(275, 670)
     canvas.hide()
 
+    //MQTT STUFF
+    //forsøg at oprette forbindelse til MQTT serveren 
+    client = mqtt.connect('wss://mqtt.nextservices.dk')
+
+    //hvis forbindelsen lykkes kaldes denne funktion
+    client.on('connect', (m) => {
+        console.log('Client connected: ', m)
+        console.log('You are now connected to mqtt.nextservices.dk')
+    })
+    
+    client.subscribe('joystick')
+    client.subscribe('knapspil')
+
+
+    client.on('joystick', ms => {
+
+    })
+
+    client.on('startAnimation', ms => {
+        animateLights()
+    })
+
+    client.on('message', (topic, message) => {
+        if(topic == 'knapspil' && message == 'forkert'){
+            console.log('wrong');
+        }
+
+        if(topic == 'knapspil' && message == 'rigtig'){
+            console.log('correct');
+            select('#buttonsCheckSign').style('opacity', '100%')
+        }
+    })
+
     joystick.mousePressed(()=>{
         if(closeAnimVar1 == 0){
             gameSelect.style('opacity', '0%')
@@ -98,30 +131,13 @@ function setup(){
                 buttonsStart.style('visibility', 'hidden')
                 buttonsStartTitle.style('visibility', 'hidden')
                 buttonGame.style('backgroundColor', 'rgba(0, 0, 0, 0)')
+                client.publish('knapspil', 'start')
             }
         }
     )
 
     background('orange')
-    //MQTT STUFF
-    //forsøg at oprette forbindelse til MQTT serveren 
-    client = mqtt.connect('wss://mqtt.nextservices.dk')
-
-    //hvis forbindelsen lykkes kaldes denne funktion
-    client.on('connect', (m) => {
-        console.log('Client connected: ', m)
-        console.log('You are now connected to mqtt.nextservices.dk')
-    })
     
-    client.subscribe('joystick')
-
-    client.on('joystick', ms => {
-
-    })
-
-    client.on('startAnimation', ms => {
-        animateLights()
-    })
 
     //test
     animateLights()
@@ -426,7 +442,7 @@ function draw(){
     if(score == 2 && closeAnimVar1 == 0){
         setTimeout(() => {
             ballgameStarted = false
-            select('#checkSign').style('opacity', '100%')
+            select('#joystickCheckSign').style('opacity', '100%')
             closeAnimVar1 = 1
             if(closeAnimVar1 == 1){
                 closeAnimVar1 = 2

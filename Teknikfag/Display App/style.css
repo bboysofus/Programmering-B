@@ -155,7 +155,7 @@ h1{
     filter: invert(54%) sepia(72%) saturate(2674%) hue-rotate(183deg) brightness(97%) contrast(93%);
 }
 
-#checkSign{
+#joystickCheckSign, #buttonsCheckSign{
     position: absolute;
     transform: scale(30%);
     transition: .5s all ease-in-out;

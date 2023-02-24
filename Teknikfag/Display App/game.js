@@ -9,11 +9,11 @@ let friction = .75
 let moveSpeed = 3
 let velocity = 0
 let rectX, rectY, rectW, rectH
-let rectSpeed = 8
+let rectSpeed = 6
 let score = 0
 let bird1, bird2, bird3, bird4, bird5, car
-let windowWidth = 265
-let windowHeight = 555
+let windowWidth = 275
+let windowHeight = 670
 const animRate = 50
 
 function preload() {
@@ -141,7 +141,7 @@ function collission(){
     //     }
     // }
     // console.log(y, rectY, rectY + rectH)
-    if(y >= rectY && y <= rectY + rectH/4){
+    if(y >= rectY && y <= rectY + rectH/6){
         if(x >= rectX - 20 - carW && x <= rectX){
             score += 1
         }else{
