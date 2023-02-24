@@ -39,7 +39,7 @@ function setup(){
     joystickStartTitle = select('#joystickStartTitle')
     buttonsStartTitle = select('#buttonsStartTitle')
 
-    canvas = createCanvas(265, 690)
+    canvas = createCanvas(275, 670)
     canvas.hide()
 
     joystick.mousePressed(()=>{

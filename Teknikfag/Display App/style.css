@@ -142,8 +142,8 @@ h1{
     border: 1px solid black;
     display: grid;
     place-items: center;
-    height: 690px;
-    width: 265px;
+    height: 670px;
+    width: 275px;
     opacity: 0%;
     visibility: hidden;
     position: absolute;
