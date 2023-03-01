@@ -195,7 +195,6 @@ function setup(){
 
     background('orange')
     
-    animateLights()
     //test
 }
 
