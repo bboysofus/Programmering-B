@@ -137,7 +137,7 @@ h1{
 }
 
 #joystickGame, #buttonGame{
-    transition: .5s all ease-in-out;
+    transition: .2s all ease-in-out;
     background-color: rgba(0, 0, 0, .20);
     border: 1px solid black;
     display: grid;
@@ -250,4 +250,12 @@ h1{
 
 #blue{
     background-color: rgba(0, 0, 255, 0.2);
+}
+
+#clap{
+    transition: .5s all ease-in-out;
+    position: absolute;
+    transform: scale(30%);
+    z-index: 100;
+    visibility: hidden;
 }

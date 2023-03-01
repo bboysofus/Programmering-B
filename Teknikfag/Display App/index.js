@@ -21,10 +21,15 @@ let joystickStartTitle
 let buttonsStartTitle
 let closeAnimVar1 = 0
 let closeAnimVar2 = 0
+let doneVar = 0
+let preVar = 0
+let joystickDone = 0
+let buttonDone = 0
 
 let red
 let green
 let blue
+
 
 //Alle lydklip
 let indenStart = new Audio('./assets/Lydfiler/indenStart.mp3')
@@ -42,6 +47,7 @@ function setup(){
 
     select('#startAudio').mousePressed(()=>{
         select('#startAudio').hide()
+        preVar = 1
     })
 
     borders = selectAll('.border')
@@ -91,6 +97,8 @@ function setup(){
         if(topic == 'start' && startVar == 0){
             animateLights()
             mqttExplain.play()
+            indenStart.pause();
+            indenStart.currentTime = 0;
             startVar = 1
             console.log('Start');
         }
@@ -98,6 +106,7 @@ function setup(){
 
     client.on('message', (topic, message) => {
         if(topic == 'knapspil' && message == 'forkert'){
+            preVar = 2
             knapspilWrong.play()
             console.log('wrong');
             setTimeout(() => {
@@ -128,6 +137,10 @@ function setup(){
                         setTimeout(() => {
                             gameSelect.style('opacity', '100%')
                             gameSelect.style('visibility', 'visible')
+                            buttonDone = 1
+                            if(joystickDone == 1){
+                                doneVar = 1
+                            }
                         }, 1000);
                     }, 1000);
                 }, 500);
@@ -169,8 +182,7 @@ function setup(){
                 console.log('show joystick game')
                 joystickGame.child(canvas)
                 joystickGame.style('border', 'none')
-                joystickStart.style('visibility', 'hidden')
-                joystickStartTitle.style('visibility', 'hidden')
+                select('#joystickStartDiv').style('opacity', '0%')
                 canvas.show()
                 ballgameStarted = true
             }
@@ -206,8 +218,7 @@ function setup(){
         ()=>{
             if(closeAnimVar2 == 0){
                 console.log('show buttons game')
-                buttonsStart.style('visibility', 'hidden')
-                buttonsStartTitle.style('visibility', 'hidden')
+                select('#buttonsStartDiv').style('opacity', '0%')
                 buttonGame.style('backgroundColor', 'rgba(0, 0, 0, 0)')
 
                 setTimeout(() => {
@@ -246,6 +257,7 @@ function animateLights(){
 
 function fadeCircle(c, i){
     let circles = selectAll('.circle')
+    c.removeClass('fadeOutClass')
     c.addClass('fadeInClass')
     if(i==5){
         setTimeout(()=>{
@@ -475,7 +487,266 @@ function rotateAnim2(){
     }, 200)
 }
 
+function shutDownAnim1(){
+    fiveElementDiv.removeClass('closeParentClass')
 
+    borderLeft.removeClass('closeChild2Class')
+    borderLeft.addClass('assemble1Class')
+    borderRight.removeClass('closeChild2Class')
+    borderRight.addClass('assemble1Class')
+    
+    borderTop.removeClass('closeChild1Class')
+    borderTop.addClass('assemble2Class')
+    borderBottom.removeClass('closeChild1Class')
+    borderBottom.addClass('assemble2Class')
+
+    setTimeout(() => {
+        borderRight.elt.style.top = null
+        borderLeft.elt.style.bottom = null
+        borderTop.elt.style.top = '0'
+        borderTop.elt.style.bottom = null
+        borderBottom.elt.style.bottom = '0'
+        borderBottom.elt.style.top = null
+
+        borderLeft.removeClass('assemble1Class')
+        borderRight.removeClass('assemble1Class')
+        borderLeft.addClass('startRotate1Class')
+        borderRight.addClass('startRotate1Class')
+
+        borderTop.removeClass('assemble2Class')
+        borderBottom.removeClass('assemble2Class')
+        borderTop.addClass('startRotate2Class')
+        borderBottom.addClass('startRotate2Class')
+
+        setTimeout(() => {
+            borderLeft.removeClass('startRotate1Class')
+            borderRight.removeClass('startRotate1Class')
+            borderLeft.addClass('rotate1Class')
+            borderRight.addClass('rotate1Class')
+
+            borderTop.removeClass('startRotate2Class')
+            borderBottom.removeClass('startRotate2Class')
+            borderTop.addClass('rotate1k1Class')
+            borderBottom.addClass('rotate1k1Class')
+
+            setTimeout(() => {
+                borderRight.elt.style.right = '0'
+                borderRight.elt.style.left = null
+                borderLeft.elt.style.left = '0'
+                borderLeft.elt.style.right = null
+                borderTop.elt.style.left = '0'
+                borderTop.elt.style.right = null
+                borderBottom.elt.style.right = '0'
+                borderBottom.elt.style.left = null
+
+                borderLeft.removeClass('rotate1Class')
+                borderRight.removeClass('rotate1Class')
+                borderLeft.addClass('rotate2Class')
+                borderRight.addClass('rotate2Class')
+
+                borderTop.removeClass('rotate1k1Class')
+                borderBottom.removeClass('rotate1k1Class')
+                borderTop.addClass('rotate2k1Class')
+                borderBottom.addClass('rotate2k1Class')
+
+                setTimeout(() => {
+                    borderLeft.removeClass('rotate2Class')
+                    borderRight.removeClass('rotate2Class')
+                    borderLeft.addClass('rotate3Class')
+                    borderRight.addClass('rotate3Class')
+
+                    borderTop.removeClass('rotate2k1Class')
+                    borderBottom.removeClass('rotate2k1Class')
+                    borderTop.addClass('rotate3k1Class')
+                    borderBottom.addClass('rotate3k1Class')
+                    setTimeout(() => {
+                        borderBottom.elt.style.bottom = null
+                        borderBottom.elt.style.top = '0'
+                        borderTop.elt.style.top = null
+                        borderTop.elt.style.bottom = '0'
+                        borderLeft.elt.style.top = null
+                        borderLeft.elt.style.bottom = '0'
+                        borderRight.elt.style.top = '0'
+                        borderRight.elt.style.bottom = null
+
+                        borderLeft.removeClass('rotate3Class')
+                        borderRight.removeClass('rotate3Class')
+                        borderLeft.addClass('startRotate1Class')
+                        borderRight.addClass('startRotate1Class')
+
+                        borderTop.removeClass('rotate3k1Class')
+                        borderBottom.removeClass('rotate3k1Class')
+                        borderTop.addClass('startRotate2Class')
+                        borderBottom.addClass('startRotate2Class')
+
+                        setTimeout(() => {
+                            borderLeft.removeClass('startRotate1Class')
+                            borderRight.removeClass('startRotate1Class')
+                            borderLeft.addClass('rotate1Class')
+                            borderRight.addClass('rotate1Class')
+
+                            borderTop.removeClass('startRotate2Class')
+                            borderBottom.removeClass('startRotate2Class')
+                            borderTop.addClass('rotate1k1Class')
+                            borderBottom.addClass('rotate1k1Class')
+
+                            setTimeout(() => {
+                                borderTop.elt.style.left = null
+                                borderTop.elt.style.right = '0'
+                                borderBottom.elt.style.right = null
+                                borderBottom.elt.style.left = '0'
+                                borderRight.elt.style.right = null
+                                borderRight.elt.style.left = '0'
+                                borderLeft.elt.style.left = null
+                                borderLeft.elt.style.right = '0'
+
+                                borderLeft.removeClass('rotate1Class')
+                                borderRight.removeClass('rotate1Class')
+                                borderLeft.addClass('rotate2Class')
+                                borderRight.addClass('rotate2Class')
+
+                                borderTop.removeClass('rotate1k1Class')
+                                borderBottom.removeClass('rotate1k1Class')
+                                borderTop.addClass('rotate2k1Class')
+                                borderBottom.addClass('rotate2k1Class')
+
+                                setTimeout(() => {
+                                    borderLeft.removeClass('rotate2Class')
+                                    borderRight.removeClass('rotate2Class')
+                                    borderLeft.addClass('rotate3Class')
+                                    borderRight.addClass('rotate3Class')
+
+                                    borderTop.removeClass('rotate2k1Class')
+                                    borderBottom.removeClass('rotate2k1Class')
+                                    borderTop.addClass('rotate3k1Class')
+                                    borderBottom.addClass('rotate3k1Class')
+
+                                    setTimeout(() => {
+                                        borderBottom.elt.style.top = null
+                                        borderBottom.elt.style.bottom = '0'
+                                        borderTop.elt.style.bottom = null
+                                        borderTop.elt.style.top = '0'
+                                        borderLeft.elt.style.bottom = null
+                                        borderLeft.elt.style.top = '0'
+                                        borderRight.elt.style.top = null
+                                        borderRight.elt.style.bottom = '0'
+
+                                        borderLeft.removeClass('rotate3Class')
+                                        borderRight.removeClass('rotate3Class')
+                                        borderLeft.addClass('startRotate1Class')
+                                        borderRight.addClass('startRotate1Class')
+
+                                        borderTop.removeClass('rotate3k1Class')
+                                        borderBottom.removeClass('rotate3k1Class')
+                                        borderTop.addClass('startRotate2Class')
+                                        borderBottom.addClass('startRotate2Class')
+
+                                        setTimeout(() => {
+                                            borderLeft.removeClass('startRotate1Class')
+                                            borderRight.removeClass('startRotate1Class')
+                                            borderLeft.addClass('rotate1Class')
+                                            borderRight.addClass('rotate1Class')
+
+                                            borderTop.removeClass('startRotate2Class')
+                                            borderBottom.removeClass('startRotate2Class')
+                                            borderTop.addClass('rotate1k1Class')
+                                            borderBottom.addClass('rotate1k1Class')
+
+                                            setTimeout(() => {
+                                                borderRight.elt.style.right = '0'
+                                                borderRight.elt.style.left = null
+                                                borderLeft.elt.style.left = '0'
+                                                borderLeft.elt.style.right = null
+                                                borderTop.elt.style.left = '0'
+                                                borderTop.elt.style.right = null
+                                                borderBottom.elt.style.right = '0'
+                                                borderBottom.elt.style.left = null
+
+                                                borderLeft.removeClass('rotate1Class')
+                                                borderRight.removeClass('rotate1Class')
+                                                borderLeft.addClass('endClass')
+                                                borderRight.addClass('endClass')
+
+                                                setTimeout(() => {
+                                                    shutDownAnim2()
+                                                }, 1000);
+                                            }, 200);
+                                        }, 100);
+                                    }, 200);
+                                }, 100);
+                            }, 200);
+                        }, 100);
+                    }, 200);
+                }, 100);
+            }, 200);
+        }, 100);
+    }, 700);
+}
+
+function shutDownAnim2(){
+    fiveElementDiv.elt.style.width = '8.5rem'
+    fiveElementDiv.elt.style.height = '8.5rem'
+
+    setTimeout(() => {
+        borders.map( c => c.elt.style.opacity = '0%')
+
+        let circles = selectAll('.circle')
+
+        circles.map((c, i) => {
+        setTimeout(() => {
+            c.removeClass('fadeOutClass')
+            c.addClass('fadeInClass')
+
+            setTimeout(() => {
+                c.removeClass('fadeInClass')
+                c.addClass('fadeOutClass')
+
+                setTimeout(() => {
+                    borderLeft.removeClass('endClass')
+                    borderRight.removeClass('endClass')
+                    borderTop.removeClass('rotate1k1Class')
+                    borderBottom.removeClass('rotate1k1Class')
+                    borderBottom.elt.style.top = '0'
+                    borderTop.elt.style.bottom = '0'
+                    borderLeft.elt.style.bottom = '0'
+                    borderRight.elt.style.top = '0'
+
+
+                    score = 0
+                    joystickDone = 0
+                    buttonDone = 0
+                    doneVar = 0
+                    startVar = 0
+                    preVar = 1
+                    closeAnimVar1 = 0
+                    closeAnimVar2 = 0
+
+                    buttonGame.style('zIndex', '100')
+                    gameSelect.style('zIndex', '101')
+                    select('#joystick').style('border', '4px #f70101 solid')
+                    select('#overlay1').style('backgroundColor', '#f701017c')
+                    select('#buttons').style('border', '4px #f70101 solid')
+                    select('#overlay2').style('backgroundColor', '#f701017c')
+                    select('#joystickCheckSign').style('opacity', '0%')
+                    select('#buttonsCheckSign').style('opacity', '0%')
+                    select('#joystickStartDiv').style('opacity', '0%')
+                    select('#buttonsStartDiv').style('opacity', '0%')
+                    select('#gameDiv').style('visibility', 'hidden')
+                    select('#gameDiv').style('opacity', '0%')
+                    select('#buttonsGameTitle').html('Se sekvensen')
+
+                    joystickGame.style('backgroundColor', 'rgba(0, 0, 0, .20)')
+                    joystickGame.style('opacity', '0%')
+                    joystickGame.style('visibility', 'hidden')
+                    buttonGame.style('backgroundColor', 'rgba(0, 0, 0, .20)')
+                    buttonGame.style('opacity', '0%')
+                    buttonGame.style('visibility', 'hidden')
+                }, 1000);
+            }, 1000);
+        }, i * 200);
+        })
+    }, 1000);
+}
 
 function openAnim(){
     console.log('opening')
@@ -510,10 +781,6 @@ function closeAnim(){
     borderTop.addClass('closeChild1Class')
     borderBottom.removeClass('openChild1Class')
     borderBottom.addClass('closeChild1Class')
-}
-
-function loadAnim(){
-
 }
 
 function sequenceStart(){
@@ -568,7 +835,7 @@ function draw(){
         collission()
     }
     
-    if(score == 10 && closeAnimVar1 == 0){
+    if(score == 1 && closeAnimVar1 == 0){
         closeAnimVar1 = 1
         setTimeout(() => {
             joystickWin.play()
@@ -592,11 +859,45 @@ function draw(){
                             setTimeout(() => {
                                 gameSelect.style('opacity', '100%')
                                 gameSelect.style('visibility', 'visible')
+                                joystickDone = 1
+                                if(buttonDone == 1){
+                                    doneVar = 1
+                                }
                             }, 1000);
                         }, 1000);
                     }, 500);
                 }, 13000)
             }
         }, 80);
+    }
+
+    if(joystickDone == 1 && buttonDone == 1 && doneVar == 1){
+        doneVar = 0
+        setTimeout(() => {
+            select('#clap').style('visibility', 'visible')
+            slut.play()
+
+            setTimeout(() => {
+                gameSelect.style('visibility', 'hidden')
+                select('#clap').style('visibility', 'hidden')
+
+                setTimeout(() => {
+                    closeAnim()
+                    borders.map( c => c.elt.style.backgroundColor = 'white')
+
+                    setTimeout(() => {
+                        shutDownAnim1()
+                    }, 1000);
+                }, 500);
+            }, 14000);
+        }, 500);
+    }
+
+    if(preVar == 1 && startVar == 0){
+        preVar = 0
+        indenStart.play()
+        setTimeout(() => {
+            preVar = 1
+        }, 15000);
     }
 }
