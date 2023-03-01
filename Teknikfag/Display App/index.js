@@ -40,6 +40,10 @@ let slut = new Audio('./assets/Lydfiler/slut.mp3')
 function setup(){
     mqttExplain = new Audio('./assets/Lydfiler/mqttExplain.mp3')
 
+    select('#startAudio').mousePressed(()=>{
+        select('#startAudio').hide()
+    })
+
     borders = selectAll('.border')
     borderTop = select('#borderTop')
     borderLeft = select('#borderLeft')
@@ -237,6 +241,7 @@ function setup(){
         }
     )
 }
+
 
 
 
