@@ -35,7 +35,7 @@ let knapspilWin = new Audio('./assets/Lydfiler/knapspilWin.mp3')
 let joystickStartAudio = new Audio('./assets/Lydfiler/joystickStartAudio.mp3')
 let joystickWin = new Audio('./assets/Lydfiler/joystickWin.mp3')
 let joystickLose = new Audio('./assets/Lydfiler/joystickLose.mp3')
-let slut = new Audio('./assets/Lydfiler/slut.mp3')
+let slut = new Audio('./assets/Lydfiler/Slut.mp3')
 
 function setup(){
     mqttExplain = new Audio('./assets/Lydfiler/mqttExplain.mp3')
@@ -89,12 +89,10 @@ function setup(){
 
     client.on('message', (topic, message) => {
         if(topic == 'start' && startVar == 0){
+            animateLights()
             mqttExplain.play()
             startVar = 1
             console.log('Start');
-            setTimeout(() => {
-                animateLights()
-            }, 1400);
         }
     })
 
@@ -138,6 +136,8 @@ function setup(){
     })
 
     joystick.mousePressed(()=>{
+        mqttExplain.pause();
+        mqttExplain.currentTime = 0;
         if(closeAnimVar1 == 0){
             joystickStartAudio.play()
             gameSelect.style('opacity', '0%')
@@ -178,6 +178,8 @@ function setup(){
     )
 
     buttons.mousePressed(()=>{
+        mqttExplain.pause();
+        mqttExplain.currentTime = 0;
         if(closeAnimVar2 == 0){
             knapspilStart.play()
             closeAnimVar2
@@ -217,7 +219,7 @@ function setup(){
 
                         setTimeout(() => {
                             client.publish('knapspil', 'start')
-                        }, 1500);
+                        }, 2500);
                     }, 500);
                 }, 500);
             }
@@ -227,19 +229,6 @@ function setup(){
     background('orange')
     
     //test
-
-    select('#wrong').mousePressed(
-        ()=>{
-            joystickWin.play()
-            // client.publish('knapspil', 'forkert')
-        }
-    )
-
-    select('#right').mousePressed(
-        ()=>{
-            client.publish('knapspil', 'rigtig')
-        }
-    )
 }
 
 
@@ -579,7 +568,7 @@ function draw(){
         collission()
     }
     
-    if(score == 1 && closeAnimVar1 == 0){
+    if(score == 10 && closeAnimVar1 == 0){
         closeAnimVar1 = 1
         setTimeout(() => {
             joystickWin.play()
