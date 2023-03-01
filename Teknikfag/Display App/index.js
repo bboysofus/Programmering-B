@@ -26,14 +26,26 @@ let red
 let green
 let blue
 
+//Alle lydklip
+let indenStart = new Audio('./assets/Lydfiler/indenStart.mp3')
+let mqttExplain
+let knapspilStart = new Audio('./assets/Lydfiler/knapspilStart.mp3')
+let knapspilWrong = new Audio('./assets/Lydfiler/knapspilWrong.mp3')
+let knapspilWin = new Audio('./assets/Lydfiler/knapspilWin.mp3')
+let joystickStartAudio = new Audio('./assets/Lydfiler/joystickStartAudio.mp3')
+let joystickWin = new Audio('./assets/Lydfiler/joystickWin.mp3')
+let joystickLose = new Audio('./assets/Lydfiler/joystickLose.mp3')
+let slut = new Audio('./assets/Lydfiler/slut.mp3')
+
 function setup(){
+    mqttExplain = new Audio('./assets/Lydfiler/mqttExplain.mp3')
+
     borders = selectAll('.border')
     borderTop = select('#borderTop')
     borderLeft = select('#borderLeft')
     borderRight = select('#borderRight')
     borderBottom = select('#borderBottom')
     fiveElementDiv = select('#fiveElement')
-
 
     gameSelect = select('#gameSelect')
     joystick = select('#joystick')
@@ -73,23 +85,26 @@ function setup(){
 
     client.on('message', (topic, message) => {
         if(topic == 'start' && startVar == 0){
+            mqttExplain.play()
             startVar = 1
             console.log('Start');
             setTimeout(() => {
-                sequenceStart()
+                animateLights()
             }, 1400);
         }
     })
 
     client.on('message', (topic, message) => {
         if(topic == 'knapspil' && message == 'forkert'){
+            knapspilWrong.play()
             console.log('wrong');
             setTimeout(() => {
                 sequenceStart()
-            }, 1500);
+            }, 4000);
         }
 
         if(topic == 'knapspil' && message == 'rigtig'){
+            knapspilWin.play()
             console.log('correct');
             closeAnimVar2 = 1
             select('#buttonsCheckSign').style('opacity', '100%')
@@ -102,6 +117,8 @@ function setup(){
                     closeAnim()
 
                     setTimeout(() => {
+                        buttonGame.style('zIndex', '-100')
+                        gameSelect.style('zIndex', '100')
                         select('#buttons').style('border', '4px #05f701 solid')
                         select('#overlay2').style('backgroundColor', '#2af7017c')
                         openAnim()
@@ -112,12 +129,13 @@ function setup(){
                         }, 1000);
                     }, 1000);
                 }, 500);
-            }, 1000);
+            }, 3000);
         }
     })
 
     joystick.mousePressed(()=>{
         if(closeAnimVar1 == 0){
+            joystickStartAudio.play()
             gameSelect.style('opacity', '0%')
             gameSelect.style('visibility', 'hidden')
 
@@ -130,6 +148,10 @@ function setup(){
                     setTimeout(() => {
                         joystickGame.style('opacity', '100%')
                         joystickGame.style('visibility', 'visible')
+
+                        setTimeout(() => {
+                            select('#joystickStartDiv').style('opacity', '100%')
+                        }, 5000);
                     }, 1000);
                 }, 1000);
             }, 500);
@@ -153,6 +175,7 @@ function setup(){
 
     buttons.mousePressed(()=>{
         if(closeAnimVar2 == 0){
+            knapspilStart.play()
             closeAnimVar2
             gameSelect.style('opacity', '0%')
             gameSelect.style('visibility', 'hidden')
@@ -163,6 +186,10 @@ function setup(){
                     setTimeout(() => {
                         buttonGame.style('opacity', '100%')
                         buttonGame.style('visibility', 'visible')
+
+                        setTimeout(() => {
+                            select('#buttonsStartDiv').style('opacity', '100%')
+                        }, 5500);
                     }, 1000);
                 }, 1000);
             }, 500);
@@ -186,7 +213,7 @@ function setup(){
 
                         setTimeout(() => {
                             client.publish('knapspil', 'start')
-                        }, 1400);
+                        }, 1500);
                     }, 500);
                 }, 500);
             }
@@ -196,6 +223,19 @@ function setup(){
     background('orange')
     
     //test
+
+    select('#wrong').mousePressed(
+        ()=>{
+            joystickWin.play()
+            // client.publish('knapspil', 'forkert')
+        }
+    )
+
+    select('#right').mousePressed(
+        ()=>{
+            client.publish('knapspil', 'rigtig')
+        }
+    )
 }
 
 
@@ -534,11 +574,12 @@ function draw(){
         collission()
     }
     
-    if(score == 2 && closeAnimVar1 == 0){
+    if(score == 1 && closeAnimVar1 == 0){
+        closeAnimVar1 = 1
         setTimeout(() => {
+            joystickWin.play()
             ballgameStarted = false
             select('#joystickCheckSign').style('opacity', '100%')
-            closeAnimVar1 = 1
             if(closeAnimVar1 == 1){
                 closeAnimVar1 = 2
                 setTimeout(() => {
@@ -560,7 +601,7 @@ function draw(){
                             }, 1000);
                         }, 1000);
                     }, 500);
-                }, 1000)
+                }, 13000)
             }
         }, 80);
     }
