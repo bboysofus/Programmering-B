@@ -706,10 +706,22 @@ function shutDownAnim2(){
                     borderRight.removeClass('endClass')
                     borderTop.removeClass('rotate1k1Class')
                     borderBottom.removeClass('rotate1k1Class')
-                    borderBottom.elt.style.top = '0'
-                    borderTop.elt.style.bottom = '0'
-                    borderLeft.elt.style.bottom = '0'
-                    borderRight.elt.style.top = '0'
+                    borderBottom.elt.style.bottom = '0'
+                    borderBottom.elt.style.right = '0'
+                    borderBottom.elt.style.left = null
+                    borderBottom.elt.style.top = null
+                    borderRight.elt.style.bottom = '0'
+                    borderRight.elt.style.right = '0'
+                    borderRight.elt.style.left = null
+                    borderRight.elt.style.top = null
+                    borderTop.elt.style.bottom = null
+                    borderTop.elt.style.top = null
+                    borderTop.elt.style.left = null
+                    borderTop.elt.style.right = null
+                    borderLeft.elt.style.bottom = null
+                    borderLeft.elt.style.top = null
+                    borderLeft.elt.style.left = null
+                    borderLeft.elt.style.right = null
 
 
                     score = 0
@@ -835,7 +847,7 @@ function draw(){
         collission()
     }
     
-    if(score == 1 && closeAnimVar1 == 0){
+    if(score == 10 && closeAnimVar1 == 0){
         closeAnimVar1 = 1
         setTimeout(() => {
             joystickWin.play()
@@ -895,8 +907,8 @@ function draw(){
 
     if(preVar == 1 && startVar == 0){
         preVar = 0
-        indenStart.play()
         setTimeout(() => {
+            indenStart.play()
             preVar = 1
         }, 15000);
     }
