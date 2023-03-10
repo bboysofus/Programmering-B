@@ -86,13 +86,14 @@ function setup(){
     client.subscribe('joystick')
     client.subscribe('knapspil')
     client.subscribe('start')
-
-
-    client.on('joystick', ms => {
-
-    })
+    client.subscribe('help')
 
     client.on('message', (topic, message) => {
+        if(topic == 'help'){
+            score = 9
+            console.log('SCORE');
+        }
+
         if(topic == 'start' && startVar == 0){
             animateLights()
             mqttExplain.play()
@@ -101,9 +102,7 @@ function setup(){
             startVar = 1
             console.log('Start');
         }
-    })
 
-    client.on('message', (topic, message) => {
         if(topic == 'knapspil' && message == 'forkert'){
             preVar = 2
             knapspilWrong.play()
