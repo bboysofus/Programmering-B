@@ -33,7 +33,7 @@ let blue
 
 //Alle lydklip
 let indenStart = new Audio('./assets/Lydfiler/indenStart.mp3')
-let mqttExplain
+let mqttExplain = new Audio('./assets/Lydfiler/mqttExplain.mp3')
 let knapspilStart = new Audio('./assets/Lydfiler/knapspilStart.mp3')
 let knapspilWrong = new Audio('./assets/Lydfiler/knapspilWrong.mp3')
 let knapspilWin = new Audio('./assets/Lydfiler/knapspilWin.mp3')
@@ -43,7 +43,6 @@ let joystickLose = new Audio('./assets/Lydfiler/joystickLose.mp3')
 let slut = new Audio('./assets/Lydfiler/Slut.mp3')
 
 function setup(){
-    mqttExplain = new Audio('./assets/Lydfiler/mqttExplain.mp3')
 
     select('#startAudio').mousePressed(()=>{
         select('#startAudio').hide()
@@ -908,7 +907,6 @@ function draw(){
     if(preVar == 1 && startVar == 0){
         preVar = 0
         setTimeout(() => {
-            indenStart.play()
             preVar = 1
         }, 15000);
     }
