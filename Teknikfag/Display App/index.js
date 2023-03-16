@@ -47,6 +47,7 @@ function setup(){
     select('#startAudio').mousePressed(()=>{
         select('#startAudio').hide()
         preVar = 1
+        select('body').elt.requestFullscreen();
     })
 
     borders = selectAll('.border')
