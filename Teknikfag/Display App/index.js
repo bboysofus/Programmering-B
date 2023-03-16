@@ -47,7 +47,13 @@ function setup(){
     select('#startAudio').mousePressed(()=>{
         select('#startAudio').hide()
         preVar = 1
-        select('body').elt.requestFullscreen();
+        if (select('body').elt.requestFullscreen) {
+            select('body').elt.requestFullscreen();
+          } else if (select('body').elt.webkitRequestFullscreen) { /* Safari */
+          select('body').elt.webkitRequestFullscreen();
+          } else if (select('body').elt.msRequestFullscreen) { /* IE11 */
+          select('body').elt.msRequestFullscreen();
+          }
     })
 
     borders = selectAll('.border')
