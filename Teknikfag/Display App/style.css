@@ -9,16 +9,17 @@
 }
 
 body{
-    height:100vh;
+    height:93vh;
     width:100vw;
-    transform: rotate(180deg);
+    scroll-margin: 0;
+    overflow:hidden;
 }
 
 main{
     height:100%;
     width:100vw;
+    transform: rotate( 180deg );
 }
-
 .page{
     height: 100%;
     width: 100vw;
