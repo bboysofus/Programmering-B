@@ -6,6 +6,7 @@ let borderBottom
 let fiveElementDiv
 
 let startVar = 0
+let timer
 
 let openButton
 let closeButton
@@ -43,6 +44,62 @@ let joystickLose = new Audio('./assets/Lydfiler/joystickLose.mp3')
 let slut = new Audio('./assets/Lydfiler/Slut.mp3')
 
 function setup(){
+    //Reset hvis der ikke har været interaktion
+    //Lyt efter brugerinteraktion
+    document.addEventListener('click', resetTimer)
+    document.addEventListener('mouseover', resetTimer)
+    document.addEventListener('keypress', resetTimer)
+
+    //Start tid
+
+    //Funktion der nulstiller timeren
+    function resetTimer(){
+        clearTimeout(timer)
+        startTimer()
+    }
+
+    //Funktion der starter timeren
+    function startTimer(){
+        if(startVar == 1){
+            timer = setTimeout(()=>{
+                startVar = 0
+                console.log('lukker');
+                buttonGame.style('zIndex', '100')
+                gameSelect.style('zIndex', '101')
+                select('#joystick').style('border', '4px #f70101 solid')
+                select('#overlay1').style('backgroundColor', '#f701017c')
+                select('#buttons').style('border', '4px #f70101 solid')
+                select('#overlay2').style('backgroundColor', '#f701017c')
+                select('#joystickCheckSign').style('opacity', '0%')
+                select('#buttonsCheckSign').style('opacity', '0%')
+                select('#joystickStartDiv').style('opacity', '0%')
+                select('#buttonsStartDiv').style('opacity', '0%')
+                select('#gameDiv').style('visibility', 'hidden')
+                select('#gameDiv').style('opacity', '0%')
+                select('#buttonsGameTitle').html('Se sekvensen')
+
+                joystickGame.style('backgroundColor', 'rgba(0, 0, 0, .20)')
+                joystickGame.style('opacity', '0%')
+                joystickGame.style('visibility', 'hidden')
+                buttonGame.style('backgroundColor', 'rgba(0, 0, 0, .20)')
+                buttonGame.style('opacity', '0%')
+                buttonGame.style('visibility', 'hidden')
+                gameSelect.style('opacity', '0%')
+                gameSelect.style('visibility', 'hidden')
+                
+                select('#clap').style('visibility', 'hidden')
+
+                setTimeout(() => {
+                    closeAnim()
+                    borders.map( c => c.elt.style.backgroundColor = 'white')
+
+                    setTimeout(() => {
+                        shutDownAnim1()
+                    }, 1000);
+                }, 500);
+            },300000)
+        }
+    }
 
     select('#startAudio').mousePressed(()=>{
         select('#startAudio').hide()
@@ -733,10 +790,11 @@ function shutDownAnim2(){
                     joystickDone = 0
                     buttonDone = 0
                     doneVar = 0
-                    startVar = 0
                     preVar = 1
                     closeAnimVar1 = 0
                     closeAnimVar2 = 0
+                    canvas.hide()
+                    ballgameStarted = false
 
                     buttonGame.style('zIndex', '100')
                     gameSelect.style('zIndex', '101')
@@ -889,6 +947,7 @@ function draw(){
     }
 
     if(joystickDone == 1 && buttonDone == 1 && doneVar == 1){
+        startVar = 0
         doneVar = 0
         setTimeout(() => {
             select('#clap').style('visibility', 'visible')
