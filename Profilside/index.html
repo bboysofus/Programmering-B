@@ -6,14 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="cards.css">
 </head>
 <body>
+    <button class="button-to-top" onclick="toTop()" style="scroll-behavior: smooth;">
+        <span class="button-arrow">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z"/></svg>
+        </span>
+    </button>
     <main>
         <div id="front">
-            <div class="imgContainer" id="frontContainer"></div>
+            <div class="imgContainer" id="omMig" onclick="jumpToOmMig()">
+                <h1>Om mig</h1>
+            </div>
+            <div class="imgContainer" id="frontContainer">
+                <div>
+                    <h1 style="font-size: 5rem; margin-bottom: 1rem">Profilside</h1>
+                    <h2 style="margin-bottom: 1.5rem;">Sofus Birk Arnbjerg</h2>
+                    <h3>Informatik B</h3>
+                </div>
+
+                <div class="img-p-arrow-container">
+                    <span class="img-arrow">
+                        <svg style="transform: scale(200%);" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
+                    </span>
+                </div>
+            </div>
+            <div class="imgContainer" id="projekter" onclick="jumpToProjekter()">
+                <h1>Projekter</h1>
+            </div>
         </div>
     </main>
-    <div id="rapporter"></div>
+    <div id="info">
+        <div id="omMigContainer">
+            <div class="headlineBox">
+                <div class="line"></div>
+                <h1 class="headline">Om Mig</h1>
+                <div class="line"></div>
+            </div>
+            <div id="omMigInfo">
+                <div class="imgContainer infoImgContainer" id="sofus"></div>
+                <h2>Jeg hedder Sofus, 20 år, og det her er min profilside i Informatik B <br>
+                    Mens jeg skriver dette, går jeg i 3.G på Københavns Mediegymnasium, hvor <br> 
+                    jeg bl.a. lærer at programmere og lave websider <br>
+                    Vi har i Informatik haft en række forskellige projekter, som hver især er endt ud <br> 
+                    i en skriftlig aflevering <br>
+                    <br>
+                    Herunder på siden er de forskellige projekter listet op efter rækkefølge <br>
+                    samt noget info og et link til den skriftlige aflevering <br>
+                    God fornøjelse
+                </h2>
+            </div>
+        </div>
+        <div id="projekterContainer">
+            <div class="headlineBox">
+                <div class="line"></div>
+                <h1 class="headline">Projekter</h1>
+                <div class="line"></div>
+            </div>
+            <form id="projekterInfo" action="createDB.php" method="post">
+                <select>
+                    <option value="">Vælg et projekt</option>
+                    <option value="1">Game Design</option>
+                    <option value="2">Firebase</option>
+                    <option value="3">Machine Learning</option>
+                    <option value="4">Cypermissions</option>
+                    <option value="5">Arduino</option>
+                    <option value="6">HMI Stemmestyring</option>
+                    <option value="7">SQL Database</option>
+                </select>
+                <input type="submit" name="create" value="Submit">
+            </form>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

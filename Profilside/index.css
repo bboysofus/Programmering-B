@@ -16,44 +16,163 @@ main{
 }
 
 #front{
+    color: white;
+    transition: .2s all ease-in-out;
     width: 100%;
-    height: calc(100vh + 500px);
+    height: 100vh;
     display: grid;
-    place-content: center;
-    align-content: flex-start;
+    place-items: center;
+    grid-auto-flow: column;
+    margin-bottom: 45rem;
 }
 
 .imgContainer{
-    width: 100px;
-    height: 100px;
+    width: 25rem;
+    height: 25rem;
     border-radius: 50%;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(116, 0, 0);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+}
+
+.infoImgContainer{
+    margin-bottom: 5rem;
+    width: 20rem;
+    height: 20rem;
 }
 
 #frontContainer{
-    background: linear-gradient(180deg, rgba(35,41,145,1) 43%, rgba(0,212,240,1) 100%);
+    background: rgb(116, 0, 0);
+    width: 50rem;
+    height: 50rem;
     position: sticky;
     position: -webkit-sticky;
-    width: 80vw;
-    height: 80vh;
-    animation: float 3s ease-in-out infinite;
+    z-index: -1;
 }
 
-#rapporter{
+#omMig{
+    position: relative;
+    opacity: 100%;
+}
+
+#projekter{
+    position: relative;
+    opacity: 1;
+}
+
+#info{
+    z-index: 2;
     width: 100%;
-    height: 150rem;
-    background: linear-gradient(180deg, #00d4ff 0%, rgba(181,255,0,1) 100%);
-
+    background: rgb(116, 0, 0);
+    display: grid;
+    place-items: center;
+    align-items:flex-start;
 }
+
+.headlineBox{
+    color: white;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    grid-auto-flow: column;
+    margin-bottom: 5rem;
+}
+
+.headline{
+    font-size: 4rem;
+}
+
+.line{
+    height: 3px;
+    width: 30rem;
+    background-color: white;
+}
+
+#sofus{
+    cursor: default;
+    background-image: url('./assets/309741167_608514350937282_87970015306360080_n\ \(1\).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#omMigInfo{
+    color: white;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+#projekterContainer{
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+#projekterInfo{
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+}
+
+select, option{
+    color: black;
+    font-weight: bold;
+    font-size: 1.7rem;
+    width: 15rem;
+    text-align: center;
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+input{
+    width: 5rem;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    margin-bottom: 5rem;
+}
+
+.img-p-arrow-container{
+    transition: .8s all ease-out;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    left: 0;
+    text-transform: uppercase;
+}
+
+.img-p{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.img-arrow{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -5rem;
+    animation: float 1s ease-in-out infinite;
+    stroke: white;
+    fill: white;
+}
+
 
 @keyframes float{
     0%{
-        transform: translateY(10px);
+        transform: translate(0);
     }
     50%{
-        transform: translateY(-10px);
+        transform: translateY(8px);
     }
     100%{
-        transform: translateY(10px);
+        transform: translate(0);
     }
 }
