@@ -21,7 +21,7 @@
     position: absolute;
     width: 5%;
     background-color: #fff9a9;
-    box-shadow: 0 0 0 transparent, 0 0 10px #ffea00, 0 0 20px #baaa00, 0 0 40px #ffea00, 0 0 10px #ffea00, 0 0 200px #ffea00, 0 0 300px #ffea00, 0 0 0px #ffea00, 0 0 1px #ffea00;
+    box-shadow: 0 0 0 transparent, 0 0 10px #ffea00, 0 0 20px #baaa00, 0 0 40px #ffea00, 0 0 10px #ffea00, 0 0 200px #ffea00, 0 0 300px #ffea00, 0 0 500px #ffea00, 0 0 100px #ffea00;
     -webkit-animation: blink 4s 3s infinite alternate;
             animation: blink 4s 3s infinite alternate;  }
   
