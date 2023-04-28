@@ -1,0 +1,66 @@
+.lightning-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 10rem;
+  }
+
+  #lightBorder{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .lightning-segment {
+    border-radius: 10rem;
+    position: absolute;
+    width: 5%;
+    background-color: #fff192;
+    box-shadow: 0 0 0 transparent, 0 0 10px #ffea00, 0 0 20px #baaa00, 0 0 40px #ffea00, 0 0 100px #ffea00, 0 0 200px #ffea00, 0 0 300px #ffea00, 0 0 500px #ffea00, 0 0 1000px #ffea00;
+    -webkit-animation: blink 4s 3s infinite alternate;
+            animation: blink 4s 3s infinite alternate;  }
+  
+  .lightning-segment:nth-child(1) {
+    width: 5%;
+    height: 50%;
+    left: 30%;
+    transform: rotate(40deg);
+  }
+  
+  .lightning-segment:nth-child(2) {
+    height: 10%;
+    top: 40%;
+    left: -0.3rem;
+    transform: rotate(90deg);
+  }
+  
+  .lightning-segment:nth-child(3) {
+    height: 30%;
+    left: 19%;
+    top: 54%;
+    transform: rotate(25deg);
+  }
+  
+  .lightning-segment:nth-child(4) {
+    width: 5%;
+    height: 50%;
+    left: 30%;
+    top: 50%;
+    transform: rotate(40deg);
+  }
+  
+  .lightning-segment:nth-child(5) {
+    width: 3rem;
+    height: .5rem;
+    top: 12.6rem;
+    left: 5.8rem;
+  }
+
+  .lightning-segment:nth-child(6) {
+    height: 30%;
+    left: 40%;
+    top: 16%;
+    transform: rotate(25deg);
+  }
+  
