@@ -3,64 +3,68 @@
     display: grid;
     place-items: center;
     height: 100%;
-    width: 10rem;
+    width: 15rem;
   }
 
   #lightBorder{
     position: relative;
+    display: grid;
+    place-items: center;
     width: 100%;
     height: 100%;
+    transform: rotate(-10deg)
   }
   
   .lightning-segment {
+    user-select: none;
     border-radius: 10rem;
     position: absolute;
     width: 5%;
-    background-color: #fff192;
-    box-shadow: 0 0 0 transparent, 0 0 10px #ffea00, 0 0 20px #baaa00, 0 0 40px #ffea00, 0 0 100px #ffea00, 0 0 200px #ffea00, 0 0 300px #ffea00, 0 0 500px #ffea00, 0 0 1000px #ffea00;
+    background-color: #fff9a9;
+    box-shadow: 0 0 0 transparent, 0 0 10px #ffea00, 0 0 20px #baaa00, 0 0 40px #ffea00, 0 0 10px #ffea00, 0 0 200px #ffea00, 0 0 300px #ffea00, 0 0 0px #ffea00, 0 0 1px #ffea00;
     -webkit-animation: blink 4s 3s infinite alternate;
             animation: blink 4s 3s infinite alternate;  }
   
   .lightning-segment:nth-child(1) {
-    width: 5%;
+    top: 2%;
     height: 50%;
-    left: 30%;
-    transform: rotate(40deg);
+    left: 45%;
+    transform: rotate(43deg);
   }
   
   .lightning-segment:nth-child(2) {
-    height: 10%;
-    top: 40%;
-    left: -0.3rem;
-    transform: rotate(90deg);
+    height: 15%;
+    top: 43%;
+    left: 19%;
+    transform: rotate(115deg);
   }
   
   .lightning-segment:nth-child(3) {
-    height: 30%;
-    left: 19%;
-    top: 54%;
-    transform: rotate(25deg);
+    height: 35%;
+    left: 23%;
+    top: 52%;
+    transform: rotate(26deg);
   }
   
   .lightning-segment:nth-child(4) {
+    bottom: 2%;
     width: 5%;
     height: 50%;
-    left: 30%;
-    top: 50%;
-    transform: rotate(40deg);
+    left: 45%;
+    transform: rotate(43deg);
   }
   
   .lightning-segment:nth-child(5) {
-    width: 3rem;
-    height: .5rem;
-    top: 12.6rem;
-    left: 5.8rem;
+    height: 15%;
+    top: 42%;
+    left: 70%;
+    transform: rotate(115deg);
   }
 
   .lightning-segment:nth-child(6) {
-    height: 30%;
-    left: 40%;
-    top: 16%;
-    transform: rotate(25deg);
+    height: 35%;
+    left: 66%;
+    top: 13%;
+    transform: rotate(26deg);
   }
   
